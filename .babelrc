@@ -1,0 +1,24 @@
+{
+  "env": {
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  },
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@components": "./src/components",
+          "@navigation": "./src/navigation",
+          "@configs": "./src/configs",
+          "@utils": "./src/utils",
+          "@themes": "./src/themes",
+          "@common": "./src/common",
+          "@layouts": "./src/layouts"
+        }
+      }
+    ]
+  ]
+}

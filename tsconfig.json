@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "lib": ["es2017"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@utils/*": ["src/utils/*"],
+      "@configs/*": ["src/configs/*"],
+      "@themes/*": ["src/themes/*"],
+      "@common/*": ["src/common/*"],
+      "@navigation/*": ["src/navigation/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "extensions": [".ios.js", ".android.js", ".js", ".ts", ".tsx", ".json"],
+        "alias": {
+          "@components": "./src/components",
+          "@layouts": "./src/layouts",
+          "@configs": "./src/configs",
+          "@utils": "./src/utils",
+          "@themes": "./src/themes",
+          "@common": "./src/common",
+          "@navigation": "./src/navigation"
+        }
+      }
+    ]
+  ]
+}
