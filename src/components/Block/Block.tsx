@@ -1,7 +1,9 @@
 import React, {forwardRef, memo, useMemo} from 'react';
 import {StyleSheet, View, StyleProp, ViewStyle} from 'react-native';
 import isEquals from 'react-fast-compare';
-import {enhance, propsToStyle} from '@common';
+import {enhance, propsToStyle} from '@common/index';
+import {AppTheme} from '@themes/type';
+import {useTheme} from '@react-navigation/native';
 
 import {BlockProps} from './Block.props';
 
@@ -14,6 +16,7 @@ const styles = StyleSheet.create({
 const BlockComponent = forwardRef(
   (props: BlockProps, ref: React.ForwardedRef<View>) => {
     // state
+    const theme: AppTheme = useTheme();
     const {
       block,
       margin,
@@ -71,6 +74,7 @@ const BlockComponent = forwardRef(
       minWidth,
       style = {},
       children,
+      colorTheme,
       ...rest
     } = props;
 
@@ -83,6 +87,7 @@ const BlockComponent = forwardRef(
               borderWidth: 1,
               borderColor: '#bbb',
             },
+            colorTheme && {backgroundColor: theme.colors[colorTheme]},
             middle && {alignItems: 'center'},
             shadow && {
               shadowColor: '#000',
@@ -153,6 +158,8 @@ const BlockComponent = forwardRef(
       [
         block,
         border,
+        colorTheme,
+        theme.colors,
         middle,
         shadow,
         shadowConfig,

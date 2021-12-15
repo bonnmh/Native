@@ -1,3 +1,5 @@
+import {AppTheme} from '@themes/type';
+import {useTheme} from '@react-navigation/native';
 import React, {memo, useMemo} from 'react';
 import isEqual from 'react-fast-compare';
 import {StatusBar, StyleSheet, useWindowDimensions} from 'react-native';
@@ -7,7 +9,6 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import Colors from '@themes/Colors';
 
 import {Block} from '../Block/Block';
 
@@ -93,14 +94,15 @@ const InsetComponent = memo(
 );
 
 function ScreenWithoutScrolling(props: ScreenProps) {
-  // state=
+  // state
+  const {colors}: AppTheme = useTheme();
   const {
     hiddenStatusBar = false,
     statusColor = undefined,
-    bottomInsetColor = Colors.PRIMARY,
+    bottomInsetColor = colors.background,
     style = {},
-    rightInsetColor = Colors.PRIMARY,
-    leftInsetColor = Colors.PRIMARY,
+    rightInsetColor = colors.background,
+    leftInsetColor = colors.background,
     statusBarStyle,
     backgroundColor,
     excludeEdges,
@@ -158,13 +160,14 @@ function ScreenWithoutScrolling(props: ScreenProps) {
 
 function ScreenWithScrolling(props: ScreenProps) {
   // state
+  const {colors}: AppTheme = useTheme();
   const {
     hiddenStatusBar = false,
     statusColor = undefined,
-    bottomInsetColor = Colors.PRIMARY,
+    bottomInsetColor = colors.background,
     style = {},
-    leftInsetColor = Colors.PRIMARY,
-    rightInsetColor = Colors.PRIMARY,
+    leftInsetColor = colors.background,
+    rightInsetColor = colors.background,
     statusBarStyle,
     backgroundColor,
     excludeEdges,

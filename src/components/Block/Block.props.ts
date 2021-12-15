@@ -1,4 +1,4 @@
-
+import { Colors } from '@themes/type';
 import React from 'react';
 import { ViewStyle, ViewProps, StyleProp, FlexAlignType } from 'react-native';
 
@@ -238,6 +238,10 @@ export interface BlockProps extends ViewProps {
    */
   color?: string;
 
+  /**
+   * Overwrite background color with theme
+   */
+  colorTheme?: keyof Colors;
 
   /**
    * Using justify content
