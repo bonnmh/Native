@@ -17,7 +17,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@utils/*": ["src/utils/*"],
       "@configs/*": ["src/configs/*"],
-      "@assets/*": ["assets/*"],
+      "@assets/*": ["src/assets/*"],
       "@themes/*": ["src/themes/*"],
       "@common/*": ["src/common/*"],
       "@navigation/*": ["src/navigation/*"]
@@ -40,6 +40,7 @@
           "@layouts": "./src/layouts",
           "@configs": "./src/configs",
           "@utils": "./src/utils",
+          "@assets": ["src/assets"],
           "@themes": "./src/themes",
           "@common": "./src/common",
           "@navigation": "./src/navigation"

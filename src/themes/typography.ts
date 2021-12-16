@@ -15,10 +15,6 @@ export const FontDefault: FontType = {
     ios: 'Lato-Italic',
     android: 'Lato-Italic',
   }) as string,
-  thin: Platform.select({
-    ios: 'Lato-Thin',
-    android: 'Lato-Thin',
-  }) as string,
 
 };
 export type FontFamily = keyof typeof FontDefault;

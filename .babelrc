@@ -16,7 +16,7 @@
           "@utils": "./src/utils",
           "@themes": "./src/themes",
           "@common": "./src/common",
-          "@assets": "./assets",
+          "@assets": "./src/assets",
           "@layouts": "./src/layouts"
         }
       }

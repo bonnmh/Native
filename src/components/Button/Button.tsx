@@ -1,14 +1,14 @@
-import {enhance} from '@common/index';
-import {AppTheme} from '@themes/type';
-import {useTheme} from '@react-navigation/native';
-import React, {memo, useMemo} from 'react';
+import { enhance } from '@common/index';
+import { AppTheme } from '@themes/type';
+import { useTheme } from '@react-navigation/native';
+import React, { memo, useMemo } from 'react';
 import equals from 'react-fast-compare';
-import {TouchableOpacity, ViewStyle} from 'react-native';
+import { TouchableOpacity, ViewStyle } from 'react-native';
 
-import {Text} from '../Text/Text';
+import { Text } from '../Text/Text';
 
-import {stylesView} from './Button.presets';
-import {ButtonProps} from './Button.props';
+import { stylesView } from './Button.presets';
+import { ButtonProps } from './Button.props';
 
 const ButtonComponent = (props: ButtonProps) => {
   // state
@@ -24,6 +24,7 @@ const ButtonComponent = (props: ButtonProps) => {
     children,
     buttonColor,
     buttonColorTheme,
+    activeOpacity = 0.5,
     ...rest
   } = props;
   const theme: AppTheme = useTheme();
@@ -69,7 +70,7 @@ const ButtonComponent = (props: ButtonProps) => {
 
   // render
   return (
-    <TouchableOpacity style={viewStyle} {...rest}>
+    <TouchableOpacity activeOpacity={activeOpacity} style={viewStyle} {...rest}>
       {content}
     </TouchableOpacity>
   );

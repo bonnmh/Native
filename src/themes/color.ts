@@ -1,7 +1,7 @@
 import { Colors } from './type';
 
 export const ColorDefault: Colors = {
-  primary: 'rgb(0, 122, 255)',
+  primary: 'rgb(1, 1, 1)',
   background: 'rgb(242, 242, 242)',
   card: 'rgb(255, 255, 255)',
   text: 'rgb(28, 28, 30)',

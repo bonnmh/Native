@@ -8,6 +8,20 @@ export interface ResponseBase<T = any> {
 
   status: boolean;
 }
+
+export interface Spacing {
+  none: number;
+  tiny: number;
+  smaller: number;
+  small: number;
+  normal: number;
+  large: number;
+  medium: number;
+  big: number;
+  mediumPlush: number;
+  huge: number;
+  massive: number;
+}
 export interface Colors {
   primary: string;
 
@@ -99,7 +113,6 @@ export interface FontSize {
 export interface FontFamily {
   primary: string;
   bold: string;
-  thin: string;
   italic: string;
 }
 export interface Spacing {

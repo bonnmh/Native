@@ -1,6 +1,6 @@
 import i18n, { LanguageDetectorAsyncModule } from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { resources } from '../../../assets/locales';
+import { resources } from '../../assets/locales';
 
 const languageDetector: LanguageDetectorAsyncModule = {
   type: 'languageDetector',

@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 export const textPresets = StyleSheet.create({
   linkTitle: {
     fontFamily: FontDefault.primary,
-    fontSize: FontSizeDefault.FONT_24,
+    fontSize: FontSizeDefault.FONT_30,
     lineHeight: 32,
     fontWeight: '600',
     color: '#000000',
@@ -32,7 +32,7 @@ export const textPresets = StyleSheet.create({
   },
   linkSmall: {
     fontFamily: FontDefault.primary,
-    fontSize: FontSizeDefault.FONT_14,
+    fontSize: FontSizeDefault.FONT_16,
     lineHeight: 20,
     fontWeight: '600',
     color: '#000000',

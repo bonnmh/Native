@@ -1,0 +1,41 @@
+import React, { useMemo, memo } from 'react';
+import { StyleProp } from 'react-native';
+import equals from 'react-fast-compare';
+import FastImage, { ImageStyle } from 'react-native-fast-image';
+
+
+import { images } from '@assets/index';
+import { enhance } from '@common/index';
+
+import { Block } from '../Block/Block';
+
+import { ImageProps } from './Image.props';
+
+const ImgComponent = (props: ImageProps) => {
+  // state
+  const {
+    style: styleOverride,
+    resizeMode = 'cover',
+    source,
+    containerStyle,
+  } = props;
+
+  // style
+  const style = useMemo<StyleProp<ImageStyle>>(
+    () =>
+      enhance([{ width: '100%', height: '100%' }, styleOverride as ImageStyle]),
+    [styleOverride],
+  );
+
+  // render
+  return (
+    <Block style={containerStyle}>
+      <FastImage
+        style={style}
+        resizeMode={resizeMode}
+        source={images[source ?? 'default']}
+      />
+    </Block>
+  );
+};
+export const Img = memo(ImgComponent, equals);

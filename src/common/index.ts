@@ -6,3 +6,4 @@ export * from './handle';
 export * from './method';
 export * from './math';
 export * from './type';
+export { default as Logger } from './logger';

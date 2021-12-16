@@ -1,4 +1,4 @@
-import {Alert, Platform} from 'react-native';
+import { Alert, Platform } from 'react-native';
 type TypesBase =
   | 'bigint'
   | 'boolean'
@@ -12,6 +12,7 @@ type TypesBase =
 export const onShowErrorBase = (msg: string) => {
   Alert.alert(msg);
 };
+
 export const onCheckType = (
   source: any,
   type: TypesBase,
