@@ -42,6 +42,10 @@ const Login = (): JSX.Element => {
         console.log(value)
     };
 
+    const _setTouched = (key: string): void => {
+        setTouched({ ...touched, [key]: true })
+    }
+
     //render
     return (
         <Screen>
@@ -62,13 +66,15 @@ const Login = (): JSX.Element => {
                                 value={values[e.field]}
                                 secureTextEntry={e.secure}
                                 errorMsg={errors[e.field]}
+                                nameTrigger={e.field}
+                                trigger={_setTouched}
                             />
                             <Spacer height={SpacingDefault.medium} />
                         </Block>
                     )
                 })}
                 <Button
-                    disabled={!isEmpty(errors) || isEmpty(touched)}
+                    onPress={handleSubmit}
                     preset='thin'
                     buttonColorTheme='primary'
                     text='LOG IN'

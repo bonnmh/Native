@@ -12,6 +12,13 @@ export const signUpFormSchema = yup.object().shape({
         .oneOf([yup.ref('password'), null], 'Re-entering the password is a required item.'),
 });
 
+export const signUpFormSchemaStepTwo = yup.object().shape({
+    nickname: yup
+        .string()
+        .min(6, 'Nickname must be long than 8 characters')
+        .required('Nickname is required'),
+});
+
 
 export interface valueProps {
     [key: string]: string
@@ -21,6 +28,10 @@ export const initialValues: valueProps = {
     email: '',
     password: '',
     confirmPassword: ''
+}
+
+export const initialValuesStepTwo: valueProps = {
+    nickname: '',
 }
 
 export interface FIELD_REGISTER_TYPE {

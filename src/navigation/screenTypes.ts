@@ -10,6 +10,7 @@ export enum APP_SCREEN {
   WELCOME = 'WELCOME',
   LOGIN = 'LOGIN',
   REGISTER = 'REGISTER',
+  REGISTER_STEP_TWO = 'REGISTER_STEP_TWO',
 
 }
 
@@ -20,4 +21,5 @@ export type RootStackParamList = {
   [APP_SCREEN.WELCOME]: undefined;
   [APP_SCREEN.LOGIN]: undefined;
   [APP_SCREEN.REGISTER]: undefined;
+  [APP_SCREEN.REGISTER_STEP_TWO]: undefined;
 }

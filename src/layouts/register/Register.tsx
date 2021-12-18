@@ -1,5 +1,6 @@
 import React from 'react';
 import { isEmpty } from 'lodash';
+import { useFormik, FormikProps, FormikErrors } from 'formik';
 
 import {
     Block,
@@ -12,14 +13,15 @@ import {
 import { Logger, scale, } from '@common/index';
 import { DefaultHeader, Input } from '@layouts/components';
 import { SpacingDefault } from '@themes/spacing';
-import { useFormik, FormikProps, FormikErrors } from 'formik';
-import { goBack } from '@navigation/navigationService';
+import { goBack, navigate } from '@navigation/navigationService';
+
 import {
     signUpFormSchema,
     initialValues,
     valueProps,
     FIELD_REGISTER
 } from './Register.Schema';
+import { APP_SCREEN } from '@navigation/screenTypes';
 
 const Register = (): JSX.Element => {
 
@@ -39,8 +41,13 @@ const Register = (): JSX.Element => {
     });
 
     const _onSubmit = (value: valueProps) => {
-        console.log(value)
+        console.log(value);
+        navigate(APP_SCREEN.REGISTER_STEP_TWO)
     };
+
+    const _setTouched = (key: string): void => {
+        setTouched({ ...touched, [key]: true })
+    }
 
     //render
     return (
@@ -49,31 +56,36 @@ const Register = (): JSX.Element => {
             <Block block padding={SpacingDefault.medium}>
                 <Text preset='linkLarge' text={'Register'} />
                 <Spacer height={SpacingDefault.medium} />
-                {FIELD_REGISTER.map((e, index) => {
-                    return (
-                        <Block key={index}>
-                            <Input
-                                typeInput={'outline'}
-                                label={e.name}
-                                onChangeText={handleChange(e.field)}
-                                onBlur={handleBlur(e.field)}
-                                errorField={errors[e.field]}
-                                touchedField={touched[e.field]}
-                                value={values[e.field]}
-                                secureTextEntry={e.secure}
-                                errorMsg={errors[e.field]}
-                            />
-                            <Spacer height={SpacingDefault.medium} />
-                        </Block>
-                    )
-                })}
-                <Button
-                    disabled={!isEmpty(errors) || isEmpty(touched)}
-                    preset='thin'
-                    buttonColorTheme='primary'
-                    text='NEXT'
-                    textPreset='linkSmall'
-                    textColor='white' />
+                <Block>
+                    {FIELD_REGISTER.map((e, index) => {
+                        return (
+                            <Block key={index}>
+                                <Input
+                                    typeInput={'outline'}
+                                    label={e.name}
+                                    onChangeText={handleChange(e.field)}
+                                    onBlur={handleBlur(e.field)}
+                                    errorField={errors[e.field]}
+                                    touchedField={touched[e.field]}
+                                    value={values[e.field]}
+                                    secureTextEntry={e.secure}
+                                    errorMsg={errors[e.field]}
+                                    nameTrigger={e.field}
+                                    trigger={_setTouched}
+                                />
+                                <Spacer height={SpacingDefault.medium} />
+                            </Block>
+                        )
+                    })}
+                    <Button
+                        onPress={handleSubmit}
+                        preset='thin'
+                        buttonColorTheme='primary'
+                        text='NEXT'
+                        textPreset='linkSmall'
+                        textColor='white' />
+                </Block>
+
             </Block>
 
         </Screen>
