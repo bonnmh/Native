@@ -9,6 +9,7 @@ export enum APP_SCREEN {
   SPLASH = 'SPLASH',
   WELCOME = 'WELCOME',
   LOGIN = 'LOGIN',
+  REGISTER = 'REGISTER',
 
 }
 
@@ -18,4 +19,5 @@ export type RootStackParamList = {
   [APP_SCREEN.SPLASH]: undefined;
   [APP_SCREEN.WELCOME]: undefined;
   [APP_SCREEN.LOGIN]: undefined;
+  [APP_SCREEN.REGISTER]: undefined;
 }

@@ -18,6 +18,10 @@ const Welcome = () => {
         navigate(APP_SCREEN.LOGIN)
     };
 
+    const _onRegister = (): void => {
+        navigate(APP_SCREEN.REGISTER)
+    };
+
     //render
     return (
         <Screen unsafe>
@@ -46,6 +50,7 @@ const Welcome = () => {
                     </Block>
                     <Block block marginRight={SpacingDefault.medium} marginLeft={SpacingDefault.smaller}>
                         <Button
+                            onPress={_onRegister}
                             preset='thin'
                             buttonColorTheme='primary'
                             text='REGISTER'
