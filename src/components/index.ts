@@ -5,3 +5,5 @@ export * from './Button/Button';
 export * from './Image/Image';
 export * from './Icon/Icon';
 export * from './Spacer/Spacer';
+export * from './TextField/TextField';
+export * from './HelperText';

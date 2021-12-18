@@ -6,12 +6,18 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SpacingDefault } from '@themes/spacing'
 import { Block, Screen, Text, Spacer, Button, Icon } from '@components/index';
 import { scale } from '@common/index';
-import { FontDefault } from '@themes/typography';
 import { images } from '@assets/index';
+import { navigate } from '@navigation/navigationService';
+import { APP_SCREEN } from '@navigation/screenTypes';
 
 const Welcome = () => {
     const insets = useSafeAreaInsets();
-    
+
+
+    const _onLogin = (): void => {
+        navigate(APP_SCREEN.LOGIN)
+    };
+
     //render
     return (
         <Screen unsafe>
@@ -33,6 +39,7 @@ const Welcome = () => {
                 <Block paddingVertical={insets.bottom} direction='row' alignItems='center'>
                     <Block block marginLeft={SpacingDefault.medium} marginRight={SpacingDefault.smaller}>
                         <Button
+                            onPress={_onLogin}
                             preset='thin'
                             text='LOG IN'
                             textPreset='linkSmall' />

@@ -1,14 +1,14 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { APP_SCREEN, MainStackParamList, RootStackParamList } from './screenTypes';
+import { APP_SCREEN, RootStackParamList } from './screenTypes';
 import Home from '@layouts/Home';
 import Splash from '@layouts/Splash';
 import { Welcome } from '@layouts/welcome';
 import { Login } from '@layouts/login';
 
 const RootStack = createStackNavigator<RootStackParamList>();
-const Main = createStackNavigator<MainStackParamList>();
+const Main = createStackNavigator();
 
 export const MainScreen = () => (
   <Main.Navigator

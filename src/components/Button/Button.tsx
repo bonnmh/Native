@@ -1,14 +1,15 @@
 import { enhance } from '@common/index';
 import { AppTheme } from '@themes/type';
-import { useTheme } from '@react-navigation/native';
 import React, { memo, useMemo } from 'react';
 import equals from 'react-fast-compare';
 import { TouchableOpacity, ViewStyle } from 'react-native';
+import { useTheme } from '@themes/index';
 
 import { Text } from '../Text/Text';
 
 import { stylesView } from './Button.presets';
 import { ButtonProps } from './Button.props';
+import { Block } from '../Block/Block';
 
 const ButtonComponent = (props: ButtonProps) => {
   // state
@@ -25,6 +26,8 @@ const ButtonComponent = (props: ButtonProps) => {
     buttonColor,
     buttonColorTheme,
     activeOpacity = 0.5,
+    padding = 0,
+    disabled = false,
     ...rest
   } = props;
   const theme: AppTheme = useTheme();
@@ -38,11 +41,12 @@ const ButtonComponent = (props: ButtonProps) => {
           backgroundColor: buttonColorTheme
             ? theme.colors[buttonColorTheme]
             : buttonColor,
+          padding
         },
 
         styleOverride as ViewStyle,
       ]),
-    [buttonColor, buttonColorTheme, preset, styleOverride, theme.colors],
+    [buttonColor, buttonColorTheme, preset, styleOverride, theme.colors, disabled],
   );
 
   const content = useMemo(
@@ -70,9 +74,14 @@ const ButtonComponent = (props: ButtonProps) => {
 
   // render
   return (
-    <TouchableOpacity activeOpacity={activeOpacity} style={viewStyle} {...rest}>
-      {content}
-    </TouchableOpacity>
+    <Block opacity={disabled ? 0.5 : 1}>
+      <TouchableOpacity
+        activeOpacity={activeOpacity}
+        style={viewStyle}
+        {...rest}>
+        {content}
+      </TouchableOpacity>
+    </Block>
   );
 };
 export const Button = memo(ButtonComponent, equals);

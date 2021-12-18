@@ -25,6 +25,18 @@ export interface ButtonProps extends TouchableOpacityProps {
   text?: string;
 
   /**
+   * disabled highlight when disabled enable
+   * @default undefined
+   */
+   disabled?: boolean;
+
+  /**
+   * padding
+   * @default undefined
+   */
+  padding?: string | number;
+
+  /**
    * Overwrite style for button
    * @default undefined
    */

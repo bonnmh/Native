@@ -14,9 +14,6 @@ export enum APP_SCREEN {
 
 export type RootStackParamList = {
   [APP_SCREEN.HOME_STACK]: undefined;
-}
-
-export type MainStackParamList = {
   [APP_SCREEN.HOME]: undefined;
   [APP_SCREEN.SPLASH]: undefined;
   [APP_SCREEN.WELCOME]: undefined;
