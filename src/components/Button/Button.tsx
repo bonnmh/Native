@@ -74,14 +74,12 @@ const ButtonComponent = (props: ButtonProps) => {
 
   // render
   return (
-    <Block opacity={disabled ? 0.5 : 1}>
-      <TouchableOpacity
-        activeOpacity={activeOpacity}
-        style={viewStyle}
-        {...rest}>
-        {content}
-      </TouchableOpacity>
-    </Block>
+    <TouchableOpacity
+      activeOpacity={activeOpacity}
+      style={[viewStyle, { opacity: disabled ? 0.5 : 1 }]}
+      {...rest}>
+      {content}
+    </TouchableOpacity>
   );
 };
 export const Button = memo(ButtonComponent, equals);

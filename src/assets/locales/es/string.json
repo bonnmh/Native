@@ -42,6 +42,18 @@
     "select": "Chọn"
   },
   "main": {
+    "discoverTab": {
+      "tvChat": "Discover",
+      "tvTabLabel": "Discover"
+    },
+    "searchTab": {
+      "tvChat": "Search",
+      "tvTabLabel": "Search"
+    },
+    "postTab": {
+      "tvChat": "Post",
+      "tvTabLabel": "Post"
+    },
     "chatTab": {
       "tvChat": "Chat",
       "tvTabLabel": "Chat"

@@ -13,7 +13,7 @@ export const AppContainer = () => {
     <NavigationContainer ref={navigationRef} theme={MyAppTheme['default']}>
       <>
         <StatusBar translucent backgroundColor={'transparent'} />
-        <RootNavigation token={'token'} />
+        <RootNavigation />
       </>
     </NavigationContainer>
   );
