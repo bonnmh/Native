@@ -54,7 +54,13 @@ const CustomBottomTab = ({ state, descriptors, navigation }: BottomTabBarProps):
 
     const styles = useStyle({ spacing })
     return (
-        <Block color={'white'} direction="row" height={scale(50) + insets.bottom} >
+        <Block
+            color={'white'}
+            borderTopWidth={StyleSheet.hairlineWidth}
+            borderTopColor='gray'
+            direction="row"
+            paddingTop={spacing.tiny}
+            height={scale(50) + insets.bottom} >
             {state.routes.map((route, index) => {
                 const { options } = descriptors[route.key];
 
@@ -83,7 +89,7 @@ const CustomBottomTab = ({ state, descriptors, navigation }: BottomTabBarProps):
                 if (route.name === APP_SCREEN.POST) {
                     return (
                         <Block
-                            flex={1.5}
+                            flex={1.3}
                             key={`tab_bar_${index}`}
                             accessibilityRole="button"
                             accessibilityState={isFocused ? { selected: true } : {}}

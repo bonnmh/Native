@@ -7,3 +7,5 @@ export * from './Icon/Icon';
 export * from './Spacer/Spacer';
 export * from './TextField/TextField';
 export * from './HelperText';
+export * from './Masonry';
+export * from './LazyLoadingImage';

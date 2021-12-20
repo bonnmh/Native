@@ -9,7 +9,7 @@ import {BlockProps} from './Block.props';
 
 const styles = StyleSheet.create({
   block: {
-    flex: 1,
+    flex: 1
   },
 });
 
