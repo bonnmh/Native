@@ -6,7 +6,7 @@ const languageDetector: LanguageDetectorAsyncModule = {
   type: 'languageDetector',
   async: true, // flags below detection to be async
   detect: (callback: any) => {
-    callback('vi_VN');
+    callback('vn');
   },
   init: () => { },
   cacheUserLanguage: () => { },
@@ -18,8 +18,8 @@ i18n
   .use(languageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'vi_VN',
-
+    fallbackLng: 'vn',
+    compatibilityJSON: 'v3',
     resources: resources,
 
     // have a common namespace used around the full app
@@ -35,5 +35,7 @@ i18n
       escapeValue: false, // not needed for react as it does escape per default to prevent xss!
     },
   });
+
+
 
 export default i18n;
