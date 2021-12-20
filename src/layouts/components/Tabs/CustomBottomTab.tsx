@@ -89,7 +89,7 @@ const CustomBottomTab = ({ state, descriptors, navigation }: BottomTabBarProps):
                 if (route.name === APP_SCREEN.POST) {
                     return (
                         <Block
-                            flex={1.3}
+                            flex={1.1}
                             key={`tab_bar_${index}`}
                             accessibilityRole="button"
                             accessibilityState={isFocused ? { selected: true } : {}}
@@ -106,7 +106,7 @@ const CustomBottomTab = ({ state, descriptors, navigation }: BottomTabBarProps):
                                     activeOpacity={1}
                                     style={styles.btnPost}>
                                     <Icon
-                                        size={scale(20)}
+                                        size={scale(16)}
                                         icon={TAB_ICONS[route.name].icon}
                                         color={'white'} />
                                 </Button>

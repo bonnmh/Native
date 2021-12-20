@@ -26,7 +26,7 @@ export const textPresets = StyleSheet.create({
   linkMedium: {
     fontFamily: FontDefault.primary,
     fontSize: FontSizeDefault.FONT_16,
-    lineHeight: 30,
+    lineHeight: 24,
     fontWeight: '600',
     color: '#000000',
   },

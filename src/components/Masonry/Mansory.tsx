@@ -111,7 +111,6 @@ function MasonryList<T>(props: Props<T>): ReactElement {
                     ]}
                 >
                     {Array.from(Array(numColumns), (_, num) => {
-                        console.log("__-data" ,data)
                         return (
                             <View
                                 key={`${keyPrefix}-${num.toString()}`}

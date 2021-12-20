@@ -4,7 +4,7 @@ import { Dimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { SpacingDefault } from '@themes/spacing';
-import { Block, Screen, Text, Spacer, LazyLoadingImage } from '@components/index';
+import { Block, Screen, Text, Spacer, LazyLoadingImage, Button } from '@components/index';
 import { Masonry } from '@components/Masonry';
 import { useTheme } from '@themes/index';
 import { Furniture, data } from './Discover.type';
@@ -42,20 +42,54 @@ const ListHeader: FC<{}> = ({ }) => {
             <LazyLoadingImage
                 source={'https://images.unsplash.com/photo-1639895072747-679cdb1ef1b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2068&q=80'}
                 style={{ width: PHOTO_TODAY_WIDTH, aspectRatio: 1 }} />
-            <Spacer height={spacing.normal} />
+            <Block marginTop={spacing.small} marginBottom={spacing.medium} direction='row' alignItems='center' >
+                <LazyLoadingImage
+                    source={'https://images.unsplash.com/photo-1639895072747-679cdb1ef1b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2068&q=80'}
+                    style={{ width: 48, aspectRatio: 1, borderRadius: 36 }} />
+                <Block marginLeft={spacing.small}>
+                    <Text preset='linkMedium'>{"Nguyễn Minh Hiếu Bốn"}</Text>
+                    <Text>{"@bonnmh"}</Text>
+                </Block>
+            </Block>
+
             <Text preset='linkSubtitle'>BROWSE ALL</Text>
             <Spacer height={spacing.tiny} />
+
         </Block>
     )
-}
+};
 
+const ListFooter: FC<{ onPress: () => void }> = ({ onPress }) => {
+    const { spacing } = useTheme();
+
+    return (
+        <Block paddingVertical={spacing.small}>
+            <Button
+                onPress={onPress}
+                preset='thin'
+                text='SEE MORE'
+                textPreset='linkSmall'/>
+        </Block>
+    )
+};
 
 const Discover = () => {
     const insets = useSafeAreaInsets();
+    const { spacing } = useTheme();
 
     const _renderListHeaderComponent = useMemo((): React.ReactElement => {
         return <ListHeader />
-    }, [data])
+    }, [data]);
+
+    const _onSeeMore = (): void => {
+
+    };
+
+    const _renderListEmptyComponent = useMemo((): React.ReactElement => {
+        return (
+            <ListFooter onPress={_onSeeMore} />
+        )
+    }, [])
 
     const _renderItem = useMemo(() => ({ item, index, num }: {
         item: Furniture;
@@ -68,7 +102,7 @@ const Discover = () => {
     //render
     return (
         <Screen unsafe backgroundColor='white'>
-            <Block block paddingHorizontal={SpacingDefault.normal} paddingTop={insets.top}>
+            <Block block paddingHorizontal={spacing.normal} paddingTop={insets.top}>
                 <Text preset='linkLarge' text={'Discover'} />
                 <Block block color={'white'}>
                     <Masonry
@@ -76,6 +110,7 @@ const Discover = () => {
                         keyPrefix='key'
                         showsVerticalScrollIndicator={false}
                         ListHeaderComponent={_renderListHeaderComponent}
+                        ListFooterComponent={_renderListEmptyComponent}
                         numColumns={2}
                         scrollEventThrottle={16}
                         renderItem={_renderItem}
