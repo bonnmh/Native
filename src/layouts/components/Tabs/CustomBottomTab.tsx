@@ -43,7 +43,7 @@ const TAB_ICONS: tabProps = {
     [APP_SCREEN.DISCOVER]: { icon: 'tab_home', labelKey: 'main:discoverTab:tvTabLabel' },
     [APP_SCREEN.SEARCH]: { icon: 'tab_search', labelKey: 'main:searchTab:tvTabLabel' },
     [APP_SCREEN.POST]: { icon: 'tab_post', labelKey: 'main:postTab:tvTabLabel' },
-    [APP_SCREEN.CHAT]: { icon: 'tab_chat', labelKey: 'main:chatTab:tvTabLabel' },
+    [APP_SCREEN.CHAT_TAB]: { icon: 'tab_chat', labelKey: 'main:chatTab:tvTabLabel' },
     [APP_SCREEN.PROFILE]: { icon: 'tab_profile', labelKey: 'main:profileTab:tvTabLabel' },
 }
 

@@ -1,6 +1,9 @@
 /* eslint-disable no-shadow */
 
 export enum APP_SCREEN {
+  MAIN = 'MAIN',
+  CHAT_TAB = 'CHAT_TAB',
+
   //stack
   HOME_STACK = 'HOME_STACK',
   HOME = 'HOME',
@@ -13,9 +16,14 @@ export enum APP_SCREEN {
   SEARCH = 'SEARCH',
   CHAT = 'CHAT',
   PROFILE = 'PROFILE',
-  MAIN = 'MAIN',
-  POST = 'POST'
+  POST = 'POST',
+  CHAT_DETAIL = 'CHAT_DETAIL',
 
+};
+
+export type ChatStackParamList = {
+  [APP_SCREEN.CHAT]: undefined;
+  [APP_SCREEN.CHAT_DETAIL]: undefined;
 };
 
 export type BottomStackParamList = {
@@ -23,6 +31,7 @@ export type BottomStackParamList = {
   [APP_SCREEN.SEARCH]: undefined;
   [APP_SCREEN.POST]: undefined;
   [APP_SCREEN.CHAT]: undefined;
+  [APP_SCREEN.CHAT_TAB]: undefined;
   [APP_SCREEN.PROFILE]: undefined;
 };
 
@@ -36,7 +45,8 @@ export type RootStackParamList = {
   [APP_SCREEN.REGISTER_STEP_TWO]: undefined;
   [APP_SCREEN.DISCOVER]: undefined;
   [APP_SCREEN.MAIN]: undefined;
-} & BottomStackParamList;
+  [APP_SCREEN.CHAT_DETAIL]: undefined
+} & BottomStackParamList & ChatStackParamList;
 
 
 
