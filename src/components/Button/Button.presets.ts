@@ -20,7 +20,7 @@ export const stylesView = StyleSheet.create({
   },
   thin: {
     width: '100%',
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: ColorDefault.primary,
     borderRadius: scale(6),
     paddingVertical: scale(18),
