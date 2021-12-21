@@ -18,6 +18,7 @@ const ImgComponent = (props: ImageProps) => {
     resizeMode = 'cover',
     source,
     containerStyle,
+    sourceRemote
   } = props;
 
   // style
@@ -33,7 +34,7 @@ const ImgComponent = (props: ImageProps) => {
       <FastImage
         style={style}
         resizeMode={resizeMode}
-        source={images[source ?? 'default']}
+        source={sourceRemote ? sourceRemote : images[source ?? 'default']}
       />
     </Block>
   );

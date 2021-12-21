@@ -42,10 +42,10 @@ interface tabProps {
 }
 const TAB_ICONS: tabProps = {
     [APP_SCREEN.DISCOVER_TAB]: { icon: 'tab_home', labelKey: 'main:discoverTab:tvTabLabel' },
-    [APP_SCREEN.SEARCH]: { icon: 'tab_search', labelKey: 'main:searchTab:tvTabLabel' },
+    [APP_SCREEN.SEARCH_TAB]: { icon: 'tab_search', labelKey: 'main:searchTab:tvTabLabel' },
     [APP_SCREEN.POST]: { icon: 'tab_post', labelKey: 'main:postTab:tvTabLabel' },
     [APP_SCREEN.CHAT_TAB]: { icon: 'tab_chat', labelKey: 'main:chatTab:tvTabLabel' },
-    [APP_SCREEN.PROFILE]: { icon: 'tab_profile', labelKey: 'main:profileTab:tvTabLabel' },
+    [APP_SCREEN.PROFILE_TAB]: { icon: 'tab_profile', labelKey: 'main:profileTab:tvTabLabel' },
 }
 
 
@@ -56,7 +56,7 @@ const CustomBottomTab = ({ state, descriptors, navigation }: BottomTabBarProps):
     const styles = useStyle({ spacing });
 
     if (getCurrentName() === APP_SCREEN.PHOTO) return <Block />
-    
+
     return (
         <Block
             color={'white'}
@@ -79,6 +79,10 @@ const CustomBottomTab = ({ state, descriptors, navigation }: BottomTabBarProps):
                     });
 
                     if (!isFocused && !event.defaultPrevented) {
+                        if (index === 2) {
+                            navigation.navigate(APP_SCREEN.CAMERA_ROLL);
+                            return;
+                        }
                         navigation.navigate(route.name);
                     }
                 };

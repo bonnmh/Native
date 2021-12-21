@@ -2,12 +2,15 @@
 import React, { FC, useMemo } from 'react';
 import { Dimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SharedElement } from 'react-navigation-shared-element';
 
 import { SpacingDefault } from '@themes/spacing';
 import { Block, Screen, Text, Spacer, LazyLoadingImage, Button } from '@components/index';
 import { Masonry } from '@components/Masonry';
 import { useTheme } from '@themes/index';
 import { Furniture, data } from '@layouts/discover/Discover.type';
+import { navigate } from '@navigation/navigationService';
+import { APP_SCREEN } from '@navigation/screenTypes';
 
 const { width } = Dimensions.get("window");
 
@@ -19,15 +22,19 @@ const FurnitureCard: FC<{ item: Furniture, index?: number, num?: number }> = ({ 
     const { spacing } = useTheme();
 
     return (
-        <Block
-            key={item.id}
-            block
-            height={(PHOTO_WIDTH * item.height) / item.width}
-            width={PHOTO_WIDTH}
-            marginLeft={!!num ? 8 : 0}>
-            <LazyLoadingImage source={item.imgURL} style={{ flex: 1 }} />
-            <Spacer height={spacing.normal} />
-        </Block>
+        <SharedElement key={item.id} id={item.id}>
+            <Button
+                onPress={() => navigate(APP_SCREEN.PHOTO, { item })}
+                style={{
+                    flex: 1,
+                    height: (PHOTO_WIDTH * item.height) / item.width,
+                    width: PHOTO_WIDTH,
+                    marginLeft: !!num ? 8 : 0
+                }}>
+                <LazyLoadingImage source={item.imgURL} style={{ flex: 1 }} />
+                <Spacer height={spacing.normal} />
+            </Button>
+        </SharedElement>
     );
 };
 

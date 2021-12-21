@@ -12,6 +12,7 @@ import { APP_SCREEN } from '@navigation/screenTypes';
 import { Input } from '@layouts/components';
 import { useTheme } from '@themes/index';
 import { data, Furniture } from '@layouts/discover/Discover.type';
+import { SharedElement } from 'react-navigation-shared-element';
 
 const { width } = Dimensions.get('window');
 
@@ -35,14 +36,18 @@ const CardItem: FC<{ onPress: () => void, item: Furniture }> = ({ onPress, item 
     const { spacing } = useTheme();
 
     return (
-        <Block
-            width={CARD_WIDTH}
-            height={100}
-            color='red'
-            marginLeft={spacing.normal}
-            marginBottom={spacing.normal}>
-            <LazyLoadingImage source={item.imgURL} style={{ flex: 1 }} />
-        </Block>
+        <SharedElement key={item.id} id={item.id}>
+            <Button
+                onPress={() => navigate(APP_SCREEN.PHOTO, { item })}
+                style={{
+                    width: CARD_WIDTH,
+                    aspectRatio: 1,
+                    marginLeft: spacing.normal,
+                    marginBottom: spacing.normal
+                }}>
+                <LazyLoadingImage source={item.imgURL} style={{ flex: 1 }} />
+            </Button>
+        </SharedElement>
     )
 };
 

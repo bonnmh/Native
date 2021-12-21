@@ -21,11 +21,18 @@ export interface ImageProps {
    * Source image(local)
    * @default undefined
    */
-  source: ImageTypes;
+  source?: ImageTypes;
 
   /**
    * Custom resizeMode
    * @default contain
    */
   resizeMode?: ResizeMode;
+
+  /**
+   * remote uri
+   * @default contain
+   */
+  sourceRemote?: { uri: string };
+
 }
