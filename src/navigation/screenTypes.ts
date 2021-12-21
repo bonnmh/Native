@@ -1,5 +1,7 @@
 /* eslint-disable no-shadow */
 
+import { Furniture } from "layouts/discover/Discover.type";
+
 export enum APP_SCREEN {
   MAIN = 'MAIN',
   CHAT_TAB = 'CHAT_TAB',
@@ -18,7 +20,8 @@ export enum APP_SCREEN {
   PROFILE = 'PROFILE',
   POST = 'POST',
   CHAT_DETAIL = 'CHAT_DETAIL',
-
+  DISCOVER_TAB = 'DISCOVER_TAB',
+  PHOTO = 'PHOTO'
 };
 
 export type ChatStackParamList = {
@@ -26,12 +29,22 @@ export type ChatStackParamList = {
   [APP_SCREEN.CHAT_DETAIL]: undefined;
 };
 
+export type DiscoverStackParamList = {
+  [APP_SCREEN.DISCOVER]: undefined;
+  [APP_SCREEN.PHOTO]: { item: Furniture }
+};
+
+// export type SharedStackParamList = {
+//   [APP_SCREEN.PHOTO]
+// }
+
 export type BottomStackParamList = {
   [APP_SCREEN.DISCOVER]: undefined;
   [APP_SCREEN.SEARCH]: undefined;
   [APP_SCREEN.POST]: undefined;
   [APP_SCREEN.CHAT]: undefined;
   [APP_SCREEN.CHAT_TAB]: undefined;
+  [APP_SCREEN.DISCOVER_TAB]: undefined;
   [APP_SCREEN.PROFILE]: undefined;
 };
 
@@ -46,7 +59,7 @@ export type RootStackParamList = {
   [APP_SCREEN.DISCOVER]: undefined;
   [APP_SCREEN.MAIN]: undefined;
   [APP_SCREEN.CHAT_DETAIL]: undefined
-} & BottomStackParamList & ChatStackParamList;
+} & BottomStackParamList & ChatStackParamList & DiscoverStackParamList;
 
 
 

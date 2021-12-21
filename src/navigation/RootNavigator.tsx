@@ -12,6 +12,28 @@ import { BottomNavigation } from './BottomNaivgation';
 
 const RootStack = createStackNavigator<RootStackParamList>();
 const Main = createStackNavigator();
+// const DiscoverStack = createSharedElementStackNavigator<SharedStackParamList>();
+
+
+// export const DiscoverNavigation = () => (
+//   <DiscoverStack.Navigator
+//     initialRouteName={APP_SCREEN.DISCOVER}
+//     screenOptions={{
+//       gestureEnabled: false,
+//       headerShown: false,
+//       cardOverlayEnabled: true,
+//       cardStyle: { backgroundColor: "transparent" },
+//       presentation: 'transparentModal'
+//     }}
+//   >
+//     <DiscoverStack.Screen name={APP_SCREEN.DISCOVER} component={Discover} />
+//     <DiscoverStack.Screen name={APP_SCREEN.PHOTO} component={Photo}
+//       sharedElements={(route) => {
+//         const { id } = route.params.item;
+//         return [id];
+//       }} />
+//   </DiscoverStack.Navigator>
+// );
 
 export const MainScreen = () => (
   <Main.Navigator
