@@ -21,7 +21,8 @@ export enum APP_SCREEN {
   POST = 'POST',
   CHAT_DETAIL = 'CHAT_DETAIL',
   DISCOVER_TAB = 'DISCOVER_TAB',
-  PHOTO = 'PHOTO'
+  PHOTO = 'PHOTO',
+  SHARED_NAV = 'SHARED_NAV'
 };
 
 export type ChatStackParamList = {
@@ -34,9 +35,9 @@ export type DiscoverStackParamList = {
   [APP_SCREEN.PHOTO]: { item: Furniture }
 };
 
-// export type SharedStackParamList = {
-//   [APP_SCREEN.PHOTO]
-// }
+export type SharedStackParamList = {
+  [APP_SCREEN.PHOTO]: { item: Furniture }
+}
 
 export type BottomStackParamList = {
   [APP_SCREEN.DISCOVER]: undefined;
@@ -58,8 +59,12 @@ export type RootStackParamList = {
   [APP_SCREEN.REGISTER_STEP_TWO]: undefined;
   [APP_SCREEN.DISCOVER]: undefined;
   [APP_SCREEN.MAIN]: undefined;
+  [APP_SCREEN.SHARED_NAV]: undefined;
   [APP_SCREEN.CHAT_DETAIL]: undefined
-} & BottomStackParamList & ChatStackParamList & DiscoverStackParamList;
+} & BottomStackParamList &
+  ChatStackParamList &
+  DiscoverStackParamList &
+  SharedStackParamList;
 
 
 

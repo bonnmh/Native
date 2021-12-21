@@ -20,15 +20,15 @@ import { Block, Screen, Text, Spacer, Button, LazyLoadingImage } from '@componen
 import { scale } from '@common/index';
 import { images } from '@assets/index';
 import { goBack, navigate } from '@navigation/navigationService';
-import { APP_SCREEN, DiscoverStackParamList } from '@navigation/screenTypes';
+import { APP_SCREEN, SharedStackParamList } from '@navigation/screenTypes';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { PanGestureHandler } from 'react-native-gesture-handler';
 
 const { height } = Dimensions.get("window");
 
 interface PhotoProps {
-    navigation: NavigationProp<DiscoverStackParamList, APP_SCREEN.PHOTO>;
-    route: RouteProp<DiscoverStackParamList, APP_SCREEN.PHOTO>;
+    navigation: NavigationProp<SharedStackParamList, APP_SCREEN.PHOTO>;
+    route: RouteProp<SharedStackParamList, APP_SCREEN.PHOTO>;
 };
 
 const Photo = ({ route }: PhotoProps) => {

@@ -8,32 +8,10 @@ import { Welcome } from '@layouts/welcome';
 import { Login } from '@layouts/login';
 import { Register, RegisterStepTwo } from '@layouts/register';
 import { Discover } from '@layouts/discover';
-import { BottomNavigation } from './BottomNaivgation';
+import { BottomNavigation, DiscoverNavigation, SharedNavigation } from './BottomNaivgation';
 
 const RootStack = createStackNavigator<RootStackParamList>();
 const Main = createStackNavigator();
-// const DiscoverStack = createSharedElementStackNavigator<SharedStackParamList>();
-
-
-// export const DiscoverNavigation = () => (
-//   <DiscoverStack.Navigator
-//     initialRouteName={APP_SCREEN.DISCOVER}
-//     screenOptions={{
-//       gestureEnabled: false,
-//       headerShown: false,
-//       cardOverlayEnabled: true,
-//       cardStyle: { backgroundColor: "transparent" },
-//       presentation: 'transparentModal'
-//     }}
-//   >
-//     <DiscoverStack.Screen name={APP_SCREEN.DISCOVER} component={Discover} />
-//     <DiscoverStack.Screen name={APP_SCREEN.PHOTO} component={Photo}
-//       sharedElements={(route) => {
-//         const { id } = route.params.item;
-//         return [id];
-//       }} />
-//   </DiscoverStack.Navigator>
-// );
 
 export const MainScreen = () => (
   <Main.Navigator
@@ -46,6 +24,7 @@ export const MainScreen = () => (
     <Main.Screen name={APP_SCREEN.REGISTER} component={Register} />
     <Main.Screen name={APP_SCREEN.REGISTER_STEP_TWO} component={RegisterStepTwo} />
     <Main.Screen name={APP_SCREEN.MAIN} component={BottomNavigation} />
+    <Main.Screen name={APP_SCREEN.SHARED_NAV} component={SharedNavigation} />
   </Main.Navigator>
 );
 

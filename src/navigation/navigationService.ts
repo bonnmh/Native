@@ -15,3 +15,7 @@ export function navigate<RouteName extends keyof RootStackParamList>(
 export function goBack() {
     navigationRef.current?.dispatch(CommonActions.goBack);
 }
+
+export function getCurrentName() {
+    return navigationRef.current?.getCurrentRoute()?.name || ''
+}

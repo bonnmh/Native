@@ -38,9 +38,7 @@ const Login = (): JSX.Element => {
         onSubmit: value => _onSubmit(value),
     });
 
-    const _onSubmit = (value: valueProps) => {
-        console.log(value)
-    };
+    const _onSubmit = (value: valueProps) => { };
 
     const _setTouched = (key: string): void => {
         setTouched({ ...touched, [key]: true })

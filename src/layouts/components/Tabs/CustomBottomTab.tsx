@@ -10,6 +10,7 @@ import { IconTypes } from '@assets/index';
 import { scale } from '@common/index';
 import { useTheme } from '@themes/index';
 import { Spacing } from '@themes/type';
+import { getCurrentName } from '@navigation/navigationService';
 
 const useStyle = ({ spacing }: { spacing: Spacing }) => {
     return StyleSheet.create({
@@ -52,7 +53,10 @@ const CustomBottomTab = ({ state, descriptors, navigation }: BottomTabBarProps):
     const insets = useSafeAreaInsets();
     const { spacing } = useTheme();
 
-    const styles = useStyle({ spacing })
+    const styles = useStyle({ spacing });
+
+    if (getCurrentName() === APP_SCREEN.PHOTO) return <Block />
+    
     return (
         <Block
             color={'white'}

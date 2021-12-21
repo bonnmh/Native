@@ -37,9 +37,7 @@ const RegisterStepTwo = (): JSX.Element => {
         onSubmit: value => _onSubmit(value),
     });
 
-    const _onSubmit = (value: valueProps) => {
-        console.log(value)
-    };
+    const _onSubmit = (value: valueProps) => {};
 
     //render
     return (

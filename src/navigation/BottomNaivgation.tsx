@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 
-import { APP_SCREEN, BottomStackParamList, ChatStackParamList, DiscoverStackParamList } from './screenTypes';
+import { APP_SCREEN, BottomStackParamList, ChatStackParamList, DiscoverStackParamList, SharedStackParamList } from './screenTypes';
 import { Discover } from '@layouts/discover';
 import { Search } from '@layouts/search';
 import { Chat, ChatDetail } from '@layouts/chat';
@@ -11,12 +11,14 @@ import { Profile } from '@layouts/profile';
 import { Post } from '@layouts/post';
 import { CustomBottomTab } from '@layouts/components/index';
 import { Photo } from '@layouts/photo';
+import { RouteProp } from '@react-navigation/native';
 
 const BottomStack = createBottomTabNavigator<BottomStackParamList>();
 
 const ChatStack = createStackNavigator<ChatStackParamList>();
 
 const DiscoverStack = createSharedElementStackNavigator<DiscoverStackParamList>();
+const SharedStack = createSharedElementStackNavigator<SharedStackParamList>();
 
 export const ChatNavigation = () => (
     <ChatStack.Navigator
@@ -46,6 +48,28 @@ export const DiscoverNavigation = () => (
             }} />
     </DiscoverStack.Navigator>
 );
+
+export const SharedNavigation = ({ route }: { route: RouteProp<SharedStackParamList, APP_SCREEN.PHOTO>; }) => {
+    return (
+        < SharedStack.Navigator
+            initialRouteName={APP_SCREEN.PHOTO}
+            screenOptions={{
+                gestureEnabled: false,
+                headerShown: false,
+                cardOverlayEnabled: true,
+                cardStyle: { backgroundColor: "transparent" },
+                presentation: 'modal'
+            }}
+        >
+            <SharedStack.Screen name={APP_SCREEN.PHOTO} component={Photo}
+                initialParams={{ item: route.params.item }}
+                sharedElements={(route) => {
+                    const { id } = route.params.item;
+                    return [id];
+                }} />
+        </SharedStack.Navigator >
+    )
+};
 
 
 export const BottomNavigation = () => {

@@ -41,7 +41,6 @@ const Register = (): JSX.Element => {
     });
 
     const _onSubmit = (value: valueProps) => {
-        console.log(value);
         navigate(APP_SCREEN.REGISTER_STEP_TWO)
     };
 
