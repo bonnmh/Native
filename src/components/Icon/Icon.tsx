@@ -32,7 +32,8 @@ const IconComponent = (props: IconProps) => {
   return (
     <TouchableOpacity
       disabled={typeof onPress !== 'function'}
-      onPress={onPress}>
+      onPress={onPress}
+    >
       <FastImage
         style={style}
         tintColor={colorTheme ? theme.colors[colorTheme] : color}
