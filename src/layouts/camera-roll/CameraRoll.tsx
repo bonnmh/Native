@@ -1,15 +1,29 @@
 import React, {FC, useEffect, useMemo, useState} from 'react';
-import {Dimensions, PermissionsAndroid, Platform, Image} from 'react-native';
+import {
+  Dimensions,
+  PermissionsAndroid,
+  Platform,
+  Image,
+  StyleSheet,
+} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import CameraRoll, {PhotoIdentifier} from '@react-native-community/cameraroll';
 import {get} from 'lodash';
-import FImage from 'react-native-fast-image';
 
 import {SpacingDefault} from '@themes/spacing';
 import {onShowErrorBase} from '@common/index';
-import {Block, Screen, Text, ListView, Button, Img} from '@components/index';
+import {
+  Block,
+  Screen,
+  Text,
+  ListView,
+  Button,
+  Img,
+  Icon,
+} from '@components/index';
 import {useTheme} from '@themes/index';
 import {PhotoNodeProps, usePagingCameraRoll} from '@utils/hooks';
+import {goBack} from '@navigation/navigationService';
 
 const {width} = Dimensions.get('window');
 
@@ -34,8 +48,7 @@ const CardItem: FC<{
         marginBottom: spacing.normal,
         borderWidth: selected ? 2 : 0,
         borderColor: 'cyan',
-      }}
-    >
+      }}>
       <Image style={{flex: 1}} source={source} />
     </Button>
   );
@@ -97,20 +110,29 @@ const CameraRollScreen = () => {
   return (
     <Screen unsafe backgroundColor="white">
       <Block block paddingTop={insets.top}>
-        <Block padding={spacing.normal}>
-          <Text preset="linkSubtitle" text={'All Photos'} />
+        <Block
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+          paddingHorizontal={spacing.normal}
+          borderBottomWidth={StyleSheet.hairlineWidth}
+          borderBottomColor="gray"
+          paddingBottom={spacing.normal}>
+          <Icon icon="back" size={spacing.normal} onPress={() => goBack()} />
+          <Text preset="linkLarge" text={'New'} />
+          <Icon icon="back" color={'white'} />
         </Block>
         <Block block>
-          <Block
-            paddingHorizontal={spacing.normal}
-            paddingBottom={spacing.normal}
-          >
-            {!!medias.length && !!currentPhotoIndex && (
+          <Block paddingHorizontal={spacing.normal} paddingTop={spacing.normal}>
+            {!!medias.length && currentPhotoIndex !== null && (
               <Image
-                style={{width: '100%', aspectRatio: 1}}
+                style={{width: '30%', aspectRatio: 1}}
                 source={{uri: medias[currentPhotoIndex].image.uri}}
               />
             )}
+          </Block>
+          <Block padding={spacing.normal}>
+            <Text preset="linkSubtitle" text={'All Photos'} />
           </Block>
           <ListView
             data={medias}
