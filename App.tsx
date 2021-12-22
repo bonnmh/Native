@@ -1,6 +1,7 @@
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import 'react-native-reanimated';
 import React, {Suspense} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {AppContainer} from '@navigation/AppNavigation';
 import {I18nextProvider} from 'react-i18next';

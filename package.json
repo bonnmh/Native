@@ -6,10 +6,13 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "clean-android": "cd android && ./gradlew clean && cd ..",
+    "clean-ios": "cd ios && xcodebuild clean && cd ..",
     "test": "jest",
     "pod": "cd ios; pod install; cd ..",
     "format": "prettier --write **/*.{ts,tsx,js,json,md}",
     "check-code": "prettier --check **/*.{ts,tsx,js,json,md}",
+    "android-release": "clean-android && npx react-native run-android --variant=release",
     "apk": "cd android && ./gradlew clean && ./gradlew assembleRelease && cd ..",
     "aab": "cd android && ./gradlew clean && ./gradlew bundleRelease && cd ..",
     "lint": "eslint  index.js ./src/**/* --ext .js,.ts,.tsx",
@@ -72,8 +75,17 @@
   },
   "jest": {
     "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
     "setupFiles": [
-      "./node_modules/react-native-gesture-handler/jestSetup.js"
+      "./node_modules/react-native-gesture-handler/jestSetup.js",
+      "./jest-setup.js"
     ]
   }
 }

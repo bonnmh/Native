@@ -33,7 +33,8 @@ const CardItem: FC<{onPress?: () => void; item: PhotoIdentifier}> = ({
         marginLeft: spacing.normal,
         marginBottom: spacing.normal,
         backgroundColor: colors.notification,
-      }}>
+      }}
+    >
       <Img sourceRemote={source} style={{flex: 1}} />
     </Button>
   );
