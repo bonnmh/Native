@@ -1,41 +1,42 @@
 import React, {FC, useEffect, useMemo, useState} from 'react';
-import {
-  Dimensions,
-  PermissionsAndroid,
-  Platform,
-  StyleSheet,
-} from 'react-native';
+import {Dimensions, PermissionsAndroid, Platform, Image} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import CameraRoll, {PhotoIdentifier} from '@react-native-community/cameraroll';
 import {get} from 'lodash';
+import FImage from 'react-native-fast-image';
 
 import {SpacingDefault} from '@themes/spacing';
 import {onShowErrorBase} from '@common/index';
 import {Block, Screen, Text, ListView, Button, Img} from '@components/index';
 import {useTheme} from '@themes/index';
+import {PhotoNodeProps, usePagingCameraRoll} from '@utils/hooks';
 
 const {width} = Dimensions.get('window');
 
 const CARD_WIDTH = (width - SpacingDefault.normal * 4) / 3;
 
-const CardItem: FC<{onPress?: () => void; item: PhotoIdentifier}> = ({
-  item,
-}) => {
+const CardItem: FC<{
+  onPress?: () => void;
+  item: PhotoNodeProps;
+  selected: boolean;
+}> = ({item, selected, onPress}) => {
   const {spacing, colors} = useTheme();
-  const uri = get(item, 'node.image.uri', '');
+  const uri = get(item, 'image.uri', '');
   const source = {uri};
 
   return (
     <Button
+      onPress={onPress}
       style={{
         width: CARD_WIDTH,
         aspectRatio: 1,
         marginLeft: spacing.normal,
         marginBottom: spacing.normal,
-        backgroundColor: colors.notification,
+        borderWidth: selected ? 2 : 0,
+        borderColor: 'cyan',
       }}
     >
-      <Img sourceRemote={source} style={{flex: 1}} />
+      <Image style={{flex: 1}} source={source} />
     </Button>
   );
 };
@@ -43,7 +44,11 @@ const CardItem: FC<{onPress?: () => void; item: PhotoIdentifier}> = ({
 const CameraRollScreen = () => {
   const insets = useSafeAreaInsets();
   const {spacing} = useTheme();
-  const [photos, setPhotos] = useState<PhotoIdentifier[]>([]);
+  const [{medias, loading}] = usePagingCameraRoll();
+  // const [photos, setPhotos] = useState<PhotoIdentifier[]>([]);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number | null>(
+    null,
+  );
 
   useEffect(() => {
     (async () => {
@@ -62,9 +67,9 @@ const CameraRollScreen = () => {
       }
     }
 
-    const fetchParams = {first: 100};
-    const data = await CameraRoll.getPhotos(fetchParams);
-    setPhotos(data.edges);
+    // const fetchParams = {first: 100};
+    // const data = await CameraRoll.getPhotos(fetchParams);
+    // setPhotos(data.edges);
   };
 
   const _renderItem = useMemo(
@@ -73,12 +78,19 @@ const CameraRollScreen = () => {
         item,
         index,
       }: {
-        item: PhotoIdentifier;
+        item: PhotoNodeProps;
         index: number;
       }): React.ReactElement => {
-        return <CardItem item={item} />;
+        console.log('__currentPhotoIndex_', currentPhotoIndex, index, item);
+        return (
+          <CardItem
+            item={item}
+            selected={currentPhotoIndex === index}
+            onPress={() => setCurrentPhotoIndex(index)}
+          />
+        );
       },
-    [photos],
+    [medias, currentPhotoIndex],
   );
 
   //render
@@ -89,11 +101,22 @@ const CameraRollScreen = () => {
           <Text preset="linkSubtitle" text={'All Photos'} />
         </Block>
         <Block block>
+          <Block
+            paddingHorizontal={spacing.normal}
+            paddingBottom={spacing.normal}
+          >
+            {!!medias.length && !!currentPhotoIndex && (
+              <Image
+                style={{width: '100%', aspectRatio: 1}}
+                source={{uri: medias[currentPhotoIndex].image.uri}}
+              />
+            )}
+          </Block>
           <ListView
-            data={photos}
+            data={medias}
             showsVerticalScrollIndicator={false}
             numColumns={3}
-            keyExtractor={(item, _) => get(item, 'node.image.uri', '')}
+            keyExtractor={(item, _) => get(item, 'image.uri', '')}
             renderItem={_renderItem}
           />
         </Block>

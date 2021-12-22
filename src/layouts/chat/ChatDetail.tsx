@@ -30,11 +30,7 @@ const ChatDetail = () => {
   //render
   return (
     <Screen unsafe backgroundColor="white">
-      <Block
-        block
-        paddingVertical={SpacingDefault.medium}
-        marginTop={insets.top}
-      >
+      <Block block marginTop={insets.top}>
         <Block
           direction="row"
           alignItems="center"
@@ -44,7 +40,7 @@ const ChatDetail = () => {
           borderBottomColor="gray"
           paddingBottom={spacing.normal}
         >
-          <Icon icon="back" onPress={_onBack} />
+          <Icon icon="back" size={spacing.normal} onPress={_onBack} />
           <Text preset="linkLarge" text={'Chats'} />
           <Icon icon="back" color={'white'} />
         </Block>
