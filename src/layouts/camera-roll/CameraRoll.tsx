@@ -58,18 +58,17 @@ const CameraRollScreen = () => {
   const insets = useSafeAreaInsets();
   const {spacing} = useTheme();
   const [{medias, loading}] = usePagingCameraRoll();
-  // const [photos, setPhotos] = useState<PhotoIdentifier[]>([]);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number | null>(
     null,
   );
 
   useEffect(() => {
     (async () => {
-      fetchPhotos();
+      initial();
     })();
   }, []);
 
-  const fetchPhotos = async () => {
+  const initial = async () => {
     if (Platform.OS === 'android') {
       const result = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
@@ -79,10 +78,6 @@ const CameraRollScreen = () => {
         return;
       }
     }
-
-    // const fetchParams = {first: 100};
-    // const data = await CameraRoll.getPhotos(fetchParams);
-    // setPhotos(data.edges);
   };
 
   const _renderItem = useMemo(
@@ -94,7 +89,6 @@ const CameraRollScreen = () => {
         item: PhotoNodeProps;
         index: number;
       }): React.ReactElement => {
-        console.log('__currentPhotoIndex_', currentPhotoIndex, index, item);
         return (
           <CardItem
             item={item}

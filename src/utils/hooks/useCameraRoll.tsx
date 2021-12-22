@@ -106,7 +106,6 @@ export const usePagingCameraRoll = (
       try {
         setLoading(true);
         const data = await CameraRoll.getPhotos(fetchParams);
-        console.log('[data all gallery]', data);
 
         const newAssets: PhotoIdentifier[] = data.edges;
         if (data.page_info.has_next_page) {
