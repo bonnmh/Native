@@ -9,6 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "pod": "cd ios; pod install; cd ..",
+    "format": "prettier --write **/*.{ts,tsx,js,json,md}",
     "bundle-js-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle"
   },
   "dependencies": {

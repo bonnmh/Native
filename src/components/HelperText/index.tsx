@@ -1,7 +1,6 @@
-
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import equals from 'react-fast-compare';
-import { LayoutChangeEvent, LayoutRectangle, Text, View } from 'react-native';
+import {LayoutChangeEvent, LayoutRectangle, Text, View} from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -11,17 +10,17 @@ import {
   enhance,
   sharedTiming,
   useInterpolate,
-  useSharedTransition
+  useSharedTransition,
 } from '@common/index';
-import { useTheme } from '@themes/index';
-import { ColorDefault } from '@themes/color';
+import {useTheme} from '@themes/index';
+import {ColorDefault} from '@themes/color';
 
-import { styles } from './styles';
-import { HelperTextProps } from './type';
+import {styles} from './styles';
+import {HelperTextProps} from './type';
 
 const HelperTextComponent = (props: HelperTextProps) => {
   // state
-  const { visible = false, msg, type, colorThemeError, colorThemeInfo } = props;
+  const {visible = false, msg, type, colorThemeError, colorThemeInfo} = props;
   const theme = useTheme();
   const [measured, setMeasured] = useState<LayoutRectangle>({
     height: 0,
@@ -36,7 +35,7 @@ const HelperTextComponent = (props: HelperTextProps) => {
 
   // function
   const _onLayoutContent = useCallback((e: LayoutChangeEvent) => {
-    setMeasured({ ...e.nativeEvent.layout });
+    setMeasured({...e.nativeEvent.layout});
   }, []);
 
   // style
@@ -44,18 +43,18 @@ const HelperTextComponent = (props: HelperTextProps) => {
     () =>
       enhance([
         styles.text,
-        { height: measured.height },
+        {height: measured.height},
         type === 'error'
           ? {
-            color: colorThemeError
-              ? theme.colors[colorThemeError]
-              : ColorDefault.error,
-          }
+              color: colorThemeError
+                ? theme.colors[colorThemeError]
+                : ColorDefault.error,
+            }
           : {
-            color: colorThemeInfo
-              ? theme.colors[colorThemeInfo]
-              : ColorDefault.info,
-          },
+              color: colorThemeInfo
+                ? theme.colors[colorThemeInfo]
+                : ColorDefault.info,
+            },
       ]),
     [colorThemeError, colorThemeInfo, measured.height, theme.colors, type],
   );
@@ -88,7 +87,8 @@ const HelperTextComponent = (props: HelperTextProps) => {
       <Animated.View
         pointerEvents={'none'}
         onLayout={_onLayoutContent}
-        style={[styles.hiddenView]}>
+        style={[styles.hiddenView]}
+      >
         <Text style={[styles.text]}>{currentMessage}</Text>
       </Animated.View>
       <Animated.View style={[style]}>

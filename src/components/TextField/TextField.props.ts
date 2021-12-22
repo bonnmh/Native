@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { StyleProp, TextInputProps, TextStyle, ViewStyle } from 'react-native';
+import {StyleProp, TextInputProps, TextStyle, ViewStyle} from 'react-native';
 
 export interface InputBaseProps extends TextInputProps {
   /**
@@ -33,7 +33,7 @@ export interface InputBaseProps extends TextInputProps {
   onTextChange?: (name?: string, value?: string) => void;
 
   /**
-   * Call trigger 
+   * Call trigger
    */
   trigger?: (value: string) => void;
 

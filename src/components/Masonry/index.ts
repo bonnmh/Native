@@ -1,1 +1,1 @@
-export { default as Masonry } from './Mansory';
+export {default as Masonry} from './Mansory';

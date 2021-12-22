@@ -1,1 +1,1 @@
-export { default as CustomBottomTab } from './CustomBottomTab';
+export {default as CustomBottomTab} from './CustomBottomTab';

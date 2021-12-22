@@ -1,6 +1,6 @@
-import i18n, { LanguageDetectorAsyncModule } from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import { resources } from '../../assets/locales';
+import i18n, {LanguageDetectorAsyncModule} from 'i18next';
+import {initReactI18next} from 'react-i18next';
+import {resources} from '../../assets/locales';
 
 const languageDetector: LanguageDetectorAsyncModule = {
   type: 'languageDetector',
@@ -8,8 +8,8 @@ const languageDetector: LanguageDetectorAsyncModule = {
   detect: (callback: any) => {
     callback('vn');
   },
-  init: () => { },
-  cacheUserLanguage: () => { },
+  init: () => {},
+  cacheUserLanguage: () => {},
 };
 /**
  * Config i18n for app
@@ -35,7 +35,5 @@ i18n
       escapeValue: false, // not needed for react as it does escape per default to prevent xss!
     },
   });
-
-
 
 export default i18n;

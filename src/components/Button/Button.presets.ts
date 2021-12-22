@@ -1,6 +1,6 @@
-import { ColorDefault } from '@themes/color';
-import { scale } from '@common/index';
-import { StyleSheet } from 'react-native';
+import {ColorDefault} from '@themes/color';
+import {scale} from '@common/index';
+import {StyleSheet} from 'react-native';
 
 export const stylesView = StyleSheet.create({
   primary: {

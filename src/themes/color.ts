@@ -1,4 +1,4 @@
-import { Colors } from './type';
+import {Colors} from './type';
 
 export const ColorDefault: Colors = {
   primary: 'rgb(1, 1, 1)',
@@ -20,5 +20,5 @@ export const ColorDark: Colors = {
   notification: 'rgb(255, 69, 58)',
   error: 'rgb(255, 59, 48)',
   info: '#ffd700',
-  red: 'rgb(238, 25, 43)'
+  red: 'rgb(238, 25, 43)',
 };

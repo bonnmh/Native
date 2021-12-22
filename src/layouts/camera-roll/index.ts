@@ -1,1 +1,1 @@
-export { default as CameraRoll } from './CameraRoll';
+export {default as CameraRoll} from './CameraRoll';

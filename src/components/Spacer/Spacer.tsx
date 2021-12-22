@@ -1,12 +1,12 @@
-import { moderateScale } from '@common/index';
-import React, { memo, useMemo } from 'react';
+import {moderateScale} from '@common/index';
+import React, {memo, useMemo} from 'react';
 import equals from 'react-fast-compare';
-import { View } from 'react-native';
+import {View} from 'react-native';
 
-import { SpacerProps } from './Spacer.props';
+import {SpacerProps} from './Spacer.props';
 
 const SpacerComponent = (props: SpacerProps) => {
-  const { height = 0, width = 0 } = props;
+  const {height = 0, width = 0} = props;
 
   // style
   const actualStyle = useMemo(

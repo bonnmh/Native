@@ -1,4 +1,4 @@
-import { Alert, Platform } from 'react-native';
+import {Alert, Platform} from 'react-native';
 type TypesBase =
   | 'bigint'
   | 'boolean'

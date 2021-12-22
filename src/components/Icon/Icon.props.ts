@@ -1,6 +1,6 @@
-import { IconTypes } from '@assets/index';
-import { Colors } from '@themes/type';
-import { ResizeMode } from 'react-native-fast-image';
+import {IconTypes} from '@assets/index';
+import {Colors} from '@themes/type';
+import {ResizeMode} from 'react-native-fast-image';
 export interface IconProps {
   /**
    * Size of Icon

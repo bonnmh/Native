@@ -17,19 +17,19 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
 } from 'react-native-reanimated';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {
   enhance,
   onCheckType,
   useSharedTransition,
-  useInterpolate
+  useInterpolate,
 } from '@common/index';
 
-import { Block, Text } from '@components/index';
+import {Block, Text} from '@components/index';
 
-import { InputOutlineProps } from './InputOutline.props';
-import { ColorDefault } from '@themes/color';
-import { SpacingDefault } from '@themes/spacing';
+import {InputOutlineProps} from './InputOutline.props';
+import {ColorDefault} from '@themes/color';
+import {SpacingDefault} from '@themes/spacing';
 
 const VERTICAL_PADDING = SpacingDefault.normal;
 const UN_ACTIVE_COLOR = ColorDefault.primary;
@@ -236,7 +236,8 @@ export const InputOutline = forwardRef<any, InputOutlineProps>((props, ref) => {
             position={'absolute'}
             paddingLeft={5}
             alignSelf={'flex-end'}
-            pointerEvents={'none'}>
+            pointerEvents={'none'}
+          >
             <Text
               tx={placeholderTx}
               text={placeHolder}
@@ -247,7 +248,8 @@ export const InputOutline = forwardRef<any, InputOutlineProps>((props, ref) => {
         {labelText && (
           <Animated.View
             pointerEvents={'none'}
-            style={[styles.wrapLabel, wrapLabelStyle]}>
+            style={[styles.wrapLabel, wrapLabelStyle]}
+          >
             <Animated.Text style={[styles.text, labelStyle]}>
               {labelText ?? ''}
             </Animated.Text>

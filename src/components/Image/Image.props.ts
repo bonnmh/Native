@@ -1,6 +1,6 @@
-import { ViewStyle, StyleProp } from 'react-native';
-import { ImageTypes } from '@assets/index';
-import { ImageStyle } from 'react-native-fast-image';
+import {ViewStyle, StyleProp} from 'react-native';
+import {ImageTypes} from '@assets/index';
+import {ImageStyle} from 'react-native-fast-image';
 
 type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center';
 
@@ -33,6 +33,5 @@ export interface ImageProps {
    * remote uri
    * @default contain
    */
-  sourceRemote?: { uri: string };
-
+  sourceRemote?: {uri: string};
 }

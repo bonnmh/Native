@@ -1,11 +1,9 @@
-import { ViewProps } from "react-native";
+import {ViewProps} from 'react-native';
 
 export interface DefaultHeaderProps extends ViewProps {
-
-    /**
-     * onPress 
-     * @default undefined
-     */
-    onPress?: () => void;
-
+  /**
+   * onPress
+   * @default undefined
+   */
+  onPress?: () => void;
 }

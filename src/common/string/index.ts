@@ -91,18 +91,18 @@ export const onHandleTagToArrayText = (
   const textSplit = source.split(' ');
   const arrText: ResultHandleTagToArrayText[] = [];
   textSplit.forEach((text: string, i: number) => {
-    const textData = { text: text, bold: false };
+    const textData = {text: text, bold: false};
     if (text[0] === char) {
       textData.bold = true;
       arrText.push(textData);
     } else {
-      arrText.push({ text: text, bold: false });
+      arrText.push({text: text, bold: false});
     }
     if (
       (text === '' && i !== textSplit.length - 1) ||
       i !== textSplit.length - 1
     ) {
-      arrText.push({ text: ' ', bold: false });
+      arrText.push({text: ' ', bold: false});
     }
   });
   return arrText;
@@ -118,8 +118,8 @@ export const onDetectUrlInTextToArray = (text: string): Array<TextUrl> => {
     .split(detectUrls)
     .map(x =>
       detectUrls.test(x)
-        ? { isLink: true, source: x }
-        : { isLink: false, source: x },
+        ? {isLink: true, source: x}
+        : {isLink: false, source: x},
     );
 };
 export const removeJapanChar = (text = '') => {

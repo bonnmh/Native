@@ -1,4 +1,4 @@
-import { onChangeAlias } from '../string/index';
+import {onChangeAlias} from '../string/index';
 
 /**
  * Sort array by text by all properties

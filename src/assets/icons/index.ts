@@ -8,7 +8,6 @@ export const icons = {
   tab_chat: require('./source/tab_chat.png'),
   tab_profile: require('./source/tab_profile.png'),
   back: require('./source/back.png'),
-
 };
 
 export type IconTypes = keyof typeof icons;

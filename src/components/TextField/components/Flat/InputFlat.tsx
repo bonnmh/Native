@@ -21,13 +21,13 @@ import {
   useInterpolate,
   useSharedTransition,
   onCheckType,
-  enhance
+  enhance,
 } from '@common/index';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
-import { Block, Text } from '@components/index';
+import {Block, Text} from '@components/index';
 
-import { InputFlatProps } from './InputFlat.props';
+import {InputFlatProps} from './InputFlat.props';
 
 const VERTICAL_PADDING = 5;
 const UN_ACTIVE_COLOR = 'rgb(159,152,146)';
@@ -238,7 +238,8 @@ export const InputFlat = forwardRef<any, InputFlatProps>((props, ref) => {
           <Block
             position={'absolute'}
             alignSelf={'flex-end'}
-            pointerEvents={'none'}>
+            pointerEvents={'none'}
+          >
             <Text
               tx={placeholderTx}
               text={placeHolder}
@@ -249,7 +250,8 @@ export const InputFlat = forwardRef<any, InputFlatProps>((props, ref) => {
         {labelText && (
           <Animated.View
             pointerEvents={'none'}
-            style={[styles.wrapLabel, wrapLabelStyle]}>
+            style={[styles.wrapLabel, wrapLabelStyle]}
+          >
             <Animated.Text style={[labelStyle]}>
               {labelText ?? ''}
             </Animated.Text>

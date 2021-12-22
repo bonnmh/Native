@@ -1,11 +1,11 @@
-import { enhance, propsToStyle } from '@common/index';
-import { AppTheme } from '@themes/type';
-import { useTheme } from '@react-navigation/native';
-import { FontSizeDefault } from '@themes/fontSize';
-import { FontDefault } from '@themes/typography';
-import React, { memo, useMemo } from 'react';
+import {enhance, propsToStyle} from '@common/index';
+import {AppTheme} from '@themes/type';
+import {useTheme} from '@react-navigation/native';
+import {FontSizeDefault} from '@themes/fontSize';
+import {FontDefault} from '@themes/typography';
+import React, {memo, useMemo} from 'react';
 import equals from 'react-fast-compare';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {
   StyleProp,
   StyleSheet,
@@ -14,8 +14,8 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { TextProps } from './Text.props';
-import { textPresets } from './Text.presets';
+import {TextProps} from './Text.props';
+import {textPresets} from './Text.presets';
 
 const styles = StyleSheet.create({
   flex: {
@@ -57,24 +57,23 @@ const TextComponent = (props: TextProps) => {
   const styleComponent = useMemo(
     () =>
       enhance<StyleProp<TextStyle>>([
-        fontSize && { fontSize: FontSizeDefault[fontSize] },
+        fontSize && {fontSize: FontSizeDefault[fontSize]},
         textPresets[preset],
         [
           flex === true && styles.flex,
-          fontFamily && { fontFamily: FontDefault[fontFamily] },
-          colorTheme && { color: theme.colors[colorTheme] },
-          center && { textAlign: 'center' },
+          fontFamily && {fontFamily: FontDefault[fontFamily]},
+          colorTheme && {color: theme.colors[colorTheme]},
+          center && {textAlign: 'center'},
           propsToStyle([
-            { fontWeight },
-            { color },
-            { textAlign },
-            { textTransform },
-            { fontStyle },
-            { letterSpacing },
-            { lineHeight },
+            {fontWeight},
+            {color},
+            {textAlign},
+            {textTransform},
+            {fontStyle},
+            {letterSpacing},
+            {lineHeight},
           ]),
-          enhance([
-            styleOverride]),
+          enhance([styleOverride]),
         ] as StyleProp<TextStyle>,
       ]),
     [
@@ -100,7 +99,8 @@ const TextComponent = (props: TextProps) => {
     <ReactNativeText
       allowFontScaling={false}
       {...rest}
-      style={[styleComponent]}>
+      style={[styleComponent]}
+    >
       {content}
     </ReactNativeText>
   );

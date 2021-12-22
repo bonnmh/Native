@@ -1,4 +1,4 @@
-import { Colors } from '@themes/type';
+import {Colors} from '@themes/type';
 import React from 'react';
 import {
   ViewStyle,
@@ -7,9 +7,9 @@ import {
   StyleProp,
 } from 'react-native';
 
-import { TextPresetNames } from '../Text/Text.presets';
+import {TextPresetNames} from '../Text/Text.presets';
 
-import { ButtonPresetNames } from './Button.presets';
+import {ButtonPresetNames} from './Button.presets';
 
 export interface ButtonProps extends TouchableOpacityProps {
   /**
@@ -28,7 +28,7 @@ export interface ButtonProps extends TouchableOpacityProps {
    * disabled highlight when disabled enable
    * @default undefined
    */
-   disabled?: boolean;
+  disabled?: boolean;
 
   /**
    * padding

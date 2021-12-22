@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 
-import { Furniture } from "layouts/discover/Discover.type";
+import {Furniture} from 'layouts/discover/Discover.type';
 
 export enum APP_SCREEN {
   //stack
@@ -27,7 +27,7 @@ export enum APP_SCREEN {
   CHAT_DETAIL = 'CHAT_DETAIL',
   PHOTO = 'PHOTO',
   CAMERA_ROLL = 'CAMERA_ROLL',
-};
+}
 
 export type ChatStackParamList = {
   [APP_SCREEN.CHAT]: undefined;
@@ -36,22 +36,22 @@ export type ChatStackParamList = {
 
 export type DiscoverStackParamList = {
   [APP_SCREEN.DISCOVER]: undefined;
-  [APP_SCREEN.PHOTO]: { item: Furniture }
+  [APP_SCREEN.PHOTO]: {item: Furniture};
 };
 
 export type SearchStackParamList = {
   [APP_SCREEN.SEARCH]: undefined;
-  [APP_SCREEN.PHOTO]: { item: Furniture }
+  [APP_SCREEN.PHOTO]: {item: Furniture};
 };
 
 export type ProfileStackParamList = {
   [APP_SCREEN.PROFILE]: undefined;
-  [APP_SCREEN.PHOTO]: { item: Furniture }
+  [APP_SCREEN.PHOTO]: {item: Furniture};
 };
 
 export type SharedStackParamList = {
-  [APP_SCREEN.PHOTO]: { item: Furniture }
-}
+  [APP_SCREEN.PHOTO]: {item: Furniture};
+};
 
 export type BottomStackParamList = {
   [APP_SCREEN.DISCOVER]: undefined;
@@ -75,7 +75,7 @@ export type RootStackParamList = {
   [APP_SCREEN.DISCOVER]: undefined;
   [APP_SCREEN.MAIN]: undefined;
   [APP_SCREEN.SHARED_NAV]: undefined;
-  [APP_SCREEN.CHAT_DETAIL]: undefined
+  [APP_SCREEN.CHAT_DETAIL]: undefined;
   [APP_SCREEN.SEARCH_TAB]: undefined;
   [APP_SCREEN.CAMERA_ROLL]: undefined;
 } & BottomStackParamList &
@@ -84,6 +84,3 @@ export type RootStackParamList = {
   SharedStackParamList &
   SearchStackParamList &
   ProfileStackParamList;
-
-
-

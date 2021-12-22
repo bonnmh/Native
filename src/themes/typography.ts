@@ -1,6 +1,6 @@
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
 
-import { FontFamily as FontType } from './type';
+import {FontFamily as FontType} from './type';
 
 export const FontDefault: FontType = {
   primary: Platform.select({
@@ -15,6 +15,5 @@ export const FontDefault: FontType = {
     ios: 'Lato-Italic',
     android: 'Lato-Italic',
   }) as string,
-
 };
 export type FontFamily = keyof typeof FontDefault;

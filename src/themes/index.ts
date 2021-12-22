@@ -1,14 +1,13 @@
-import { Theme, useTheme as useThemeRN } from '@react-navigation/native';
+import {Theme, useTheme as useThemeRN} from '@react-navigation/native';
 
-
-import { ColorDefault, ColorDark } from './color';
-import { SpacingDefault } from './spacing';
+import {ColorDefault, ColorDark} from './color';
+import {SpacingDefault} from './spacing';
 
 type ColorDefault = typeof ColorDefault;
 type ColorDark = typeof ColorDark;
 
 export type Colors = ColorDefault & ColorDark;
-export type AppTheme = Theme & { colors: Colors };
+export type AppTheme = Theme & {colors: Colors};
 
 const Default: AppTheme = {
   dark: false,
@@ -25,12 +24,10 @@ export const MyAppTheme = {
 
 export type ThemeType = keyof typeof MyAppTheme;
 
-
 export const useTheme = () => {
   const payload = useThemeRN() as AppTheme;
   return {
     ...payload,
-    spacing: SpacingDefault
+    spacing: SpacingDefault,
   };
 };
-
