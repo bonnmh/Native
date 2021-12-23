@@ -6,6 +6,7 @@ import {MyAppTheme} from '@themes/index';
 
 import {navigationRef} from './navigationService';
 import {RootNavigation} from './RootNavigator';
+import {PortalHost} from '@components/index';
 
 export const AppContainer = () => {
   // render
@@ -13,6 +14,7 @@ export const AppContainer = () => {
     <NavigationContainer ref={navigationRef} theme={MyAppTheme['default']}>
       <>
         <StatusBar translucent backgroundColor={'transparent'} />
+        <PortalHost name={'AppModal'} />
         <RootNavigation />
       </>
     </NavigationContainer>

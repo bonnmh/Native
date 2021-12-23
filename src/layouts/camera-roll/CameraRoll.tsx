@@ -48,7 +48,8 @@ const CardItem: FC<{
         marginBottom: spacing.normal,
         borderWidth: selected ? 2 : 0,
         borderColor: 'cyan',
-      }}>
+      }}
+    >
       <Image style={{flex: 1}} source={source} />
     </Button>
   );
@@ -111,7 +112,8 @@ const CameraRollScreen = () => {
           paddingHorizontal={spacing.normal}
           borderBottomWidth={StyleSheet.hairlineWidth}
           borderBottomColor="gray"
-          paddingBottom={spacing.normal}>
+          paddingBottom={spacing.normal}
+        >
           <Icon icon="back" size={spacing.normal} onPress={() => goBack()} />
           <Text preset="linkLarge" text={'New'} />
           <Icon icon="back" color={'white'} />

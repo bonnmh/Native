@@ -10,3 +10,6 @@ export * from './HelperText';
 export * from './Masonry';
 export * from './LazyLoadingImage';
 export * from './ListView';
+export * from './Portal';
+export * from './Modal';
+export * from './DropDown';

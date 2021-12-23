@@ -1,7 +1,10 @@
 {
   "env": {
     "production": {
-      "plugins": ["transform-remove-console"]
+      "plugins": [
+        "transform-remove-console",
+        "@babel/plugin-syntax-dynamic-import"
+      ]
     }
   },
   "plugins": [
@@ -20,6 +23,7 @@
           "@layouts": "./src/layouts"
         }
       }
-    ]
+    ],
+    "@babel/plugin-syntax-dynamic-import"
   ]
 }

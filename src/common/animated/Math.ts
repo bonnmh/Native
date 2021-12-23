@@ -1,4 +1,4 @@
-import Animated from 'react-native-reanimated';
+// import 'react-native-reanimated';
 /**
  * Clamp value on UI thread.
  */

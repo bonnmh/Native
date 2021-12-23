@@ -1,21 +1,24 @@
-import {useEffect} from 'react';
-import Animated, {
+import { useEffect } from 'react';
+import {
   Easing,
   useDerivedValue,
   useSharedValue,
   withSpring,
   withTiming,
+  WithTimingConfig,
+  WithSpringConfig,
+  SharedValue,
 } from 'react-native-reanimated';
 
-import {sharedBin} from './Math';
+import { sharedBin } from './Math';
 
 /**
  * Return value runs from 0 to 1 when state change using withTiming
  */
 export const useSharedTransition = (
   state: boolean | number,
-  config?: Animated.WithTimingConfig,
-): Animated.SharedValue<number> => {
+  config?: WithTimingConfig,
+): SharedValue<number> => {
   const value = useSharedValue(0);
   useEffect(() => {
     value.value = typeof state === 'boolean' ? sharedBin(state) : state;
@@ -24,7 +27,7 @@ export const useSharedTransition = (
     withTiming(
       value.value,
       Object.assign(
-        {duration: 500, easing: Easing.bezier(0.33, 0.01, 0, 1)},
+        { duration: 500, easing: Easing.bezier(0.33, 0.01, 0, 1) },
         config,
       ),
     ),
@@ -36,8 +39,8 @@ export const useSharedTransition = (
  */
 export const useSharedSpringTransition = (
   state: boolean,
-  config?: Animated.WithSpringConfig,
-): Animated.SharedValue<number> => {
+  config?: WithSpringConfig,
+): SharedValue<number> => {
   const value = useSharedValue(0);
   useEffect(() => {
     value.value = typeof state === 'boolean' ? sharedBin(state) : state;
