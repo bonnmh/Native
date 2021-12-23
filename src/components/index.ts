@@ -14,3 +14,4 @@ export * from './Portal';
 export * from './Modal';
 export * from './DropDown';
 export * from './ProgressDialog';
+export * from './Progress';

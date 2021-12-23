@@ -15,7 +15,7 @@ import {
   Modal,
   ProgressDialog,
   showLoading,
-  progressDialogRef
+  Progress,
 } from '@components/index';
 import {Masonry} from '@components/Masonry';
 import {useTheme} from '@themes/index';
@@ -150,13 +150,7 @@ const Discover = () => {
   return (
     <Screen unsafe backgroundColor="white">
       <Block block paddingHorizontal={spacing.normal} paddingTop={insets.top}>
-        <Text
-          onPress={() => {
-            
-          }}
-          preset="linkLarge"
-          text={'Discover'}
-        />
+        <Text onPress={() => {}} preset="linkLarge" text={'Discover'} />
 
         <Block block>
           <Masonry
