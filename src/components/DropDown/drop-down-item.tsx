@@ -56,7 +56,7 @@ const DropDownItemComponent = ({
 
   // render
   return (
-    <TouchableOpacity onPress={_onItemPress} >
+    <TouchableOpacity onPress={_onItemPress}>
       <View style={[container]}>
         <Text style={[label]}>{item.label}</Text>
         <View style={[styles.wrapIcon]}>

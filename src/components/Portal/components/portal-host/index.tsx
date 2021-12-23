@@ -15,7 +15,6 @@ const PortalHostComponent = ({name}: PortalHostProps) => {
     return () => {
       deregisterHost();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // render

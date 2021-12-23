@@ -282,7 +282,8 @@ const ModalContentComponent = forwardRef(
       return (
         <Animated.View
           pointerEvents="box-none"
-          style={[styles.content, style, reContentStyle]}>
+          style={[styles.content, style, reContentStyle]}
+        >
           <Animated.View style={[wrapContentStyle]}>
             {hasGesture && (
               <PanGestureHandler onGestureEvent={onGesture}>

@@ -334,7 +334,8 @@ const DropDownComponent = forwardRef((props: DropDownProps, _) => {
         animatedIn={'fadeIn'}
         animatedOut={'fadeOut'}
         style={[styles.modal]}
-        isVisible={isVisible}>
+        isVisible={isVisible}
+      >
         <View onLayout={_onLayoutDrop} style={contentModalStyle}>
           <FlatList
             data={data}
