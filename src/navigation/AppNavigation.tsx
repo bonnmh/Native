@@ -6,7 +6,7 @@ import {MyAppTheme} from '@themes/index';
 
 import {navigationRef} from './navigationService';
 import {RootNavigation} from './RootNavigator';
-import {PortalHost, ProgressDialog} from '@components/index';
+import {PortalHost, ProgressDialog, SnackBar} from '@components/index';
 
 export const AppContainer = () => {
   // render
@@ -16,6 +16,7 @@ export const AppContainer = () => {
         <StatusBar translucent backgroundColor={'transparent'} />
         <PortalHost name={'AppModal'} />
         <ProgressDialog />
+        <SnackBar />
 
         <RootNavigation />
       </>

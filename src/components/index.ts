@@ -18,3 +18,8 @@ export * from './Progress';
 export * from './RadioButton';
 export * from './Otp';
 export * from './Select';
+export * from './CheckBox';
+export * from './Divider';
+export * from './ActionSheet';
+export * from './Collapsible';
+export * from './SnackBar';

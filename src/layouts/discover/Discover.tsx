@@ -1,4 +1,4 @@
-import React, {FC, useMemo, useState} from 'react';
+import React, {FC, useCallback, useMemo, useRef, useState} from 'react';
 import {Dimensions} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {SharedElement} from 'react-navigation-shared-element';
@@ -11,7 +11,9 @@ import {
   Spacer,
   LazyLoadingImage,
   Button,
-  Select,
+  ActionSheet,
+  showSnack,
+  SnackBar
 } from '@components/index';
 import {Masonry} from '@components/Masonry';
 import {useTheme} from '@themes/index';
@@ -112,6 +114,8 @@ const Discover = () => {
   const insets = useSafeAreaInsets();
   const {spacing} = useTheme();
 
+  const _refAction = useRef<ActionSheet>();
+
   const [isSeeMore, setIsSeeMore] = useState<boolean>(false);
 
   const _renderListHeaderComponent = useMemo((): React.ReactElement => {
@@ -142,15 +146,21 @@ const Discover = () => {
     [data],
   );
 
+  const _onShowAction = useCallback(() => {
+    showSnack({msg: 'ahhaha', type: 'error'});
+  }, []);
+
   //render
   return (
     <Screen unsafe backgroundColor="white">
       <Block block paddingHorizontal={spacing.normal} paddingTop={insets.top}>
         <Text onPress={() => {}} preset="linkLarge" text={'Discover'} />
         <Block paddingVertical={15} middle direction={'row'}>
-          <Text>Select</Text>
+          <Text>Action Sheet</Text>
           <Spacer width={10} />
-          <Select data={[{text: 'Option1'}, {text: 'Option2'}]} />
+          <Button onPress={_onShowAction}>
+            <Text>Show Action</Text>
+          </Button>
         </Block>
         {/* <Block block>
           <Masonry
