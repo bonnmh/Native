@@ -6,18 +6,21 @@ import {AppContainer} from '@navigation/AppNavigation';
 import {I18nextProvider} from 'react-i18next';
 import i18n from '@utils/i18n/i18n';
 import {PortalProvider} from '@components/index';
+import {SocketProvider} from '@common/socketIo';
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <I18nextProvider i18n={i18n}>
-        <Suspense fallback={null}>
-          <PortalProvider>
-            <AppContainer />
-          </PortalProvider>
-        </Suspense>
-      </I18nextProvider>
-    </SafeAreaProvider>
+    <SocketProvider value={undefined}>
+      <SafeAreaProvider>
+        <I18nextProvider i18n={i18n}>
+          <Suspense fallback={null}>
+            <PortalProvider>
+              <AppContainer />
+            </PortalProvider>
+          </Suspense>
+        </I18nextProvider>
+      </SafeAreaProvider>
+    </SocketProvider>
   );
 };
 

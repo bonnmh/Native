@@ -1,7 +1,9 @@
 import React, {FC, useCallback, useMemo, useRef, useState} from 'react';
-import {Dimensions} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {SharedElement} from 'react-navigation-shared-element';
+import {MotiView} from 'moti';
+import {Easing} from 'react-native-reanimated';
 
 import {SpacingDefault} from '@themes/spacing';
 import {
@@ -14,7 +16,7 @@ import {
   ActionSheet,
   showSnack,
   SnackBar,
-  Slider,
+  Indicator,
 } from '@components/index';
 import {Masonry} from '@components/Masonry';
 import {useTheme} from '@themes/index';

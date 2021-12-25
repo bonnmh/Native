@@ -24,4 +24,5 @@ export * from './ActionSheet';
 export * from './Collapsible';
 export * from './SnackBar';
 export * from './Slider';
-export * from './Switch'
+export * from './Switch';
+export * from './Indicator';
