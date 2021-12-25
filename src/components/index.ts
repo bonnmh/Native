@@ -16,3 +16,5 @@ export * from './DropDown';
 export * from './ProgressDialog';
 export * from './Progress';
 export * from './RadioButton';
+export * from './Otp';
+export * from './Select';
