@@ -1,4 +1,4 @@
-import { Colors } from '@themes/index';
+import {Colors} from '@themes/index';
 
 export interface DividerProps {
   /**

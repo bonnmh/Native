@@ -1,6 +1,6 @@
-import { ColorDefault } from '@themes/color';
-import { scale } from '@common/index';
-import { StyleSheet } from 'react-native';
+import {ColorDefault} from '@themes/color';
+import {scale} from '@common/index';
+import {StyleSheet} from 'react-native';
 const WIDTH_OTP = 32;
 const HEIGHT_OTP = 40;
 export const styles = StyleSheet.create({

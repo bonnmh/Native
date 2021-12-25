@@ -104,7 +104,8 @@ const SelectComponent = (props: SelectProps) => {
           animatedOut={'slideOutDown'}
           style={[styles.modal]}
           backdropOpacity={0.3}
-          isVisible={visible}>
+          isVisible={visible}
+        >
           <View>
             <View style={[content]}>
               <FlatList

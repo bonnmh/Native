@@ -120,7 +120,8 @@ const OtpComponent = (props: OtpProps) => {
                         (length === otp.length && index === otp.length - 1)) &&
                         isFocused &&
                         wrapInputActive,
-                    ]}>
+                    ]}
+                  >
                     <Text
                       children={
                         index <= otp.length - 1

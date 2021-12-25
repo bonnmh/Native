@@ -101,7 +101,8 @@ const ActionSheetComponent = forwardRef((props: ActionSheetProps, ref) => {
       onBackdropPress={_onBackDropPress}
       onBackButtonPress={_onCancel}
       isVisible={actionVisible}
-      backdropColor={backDropColor}>
+      backdropColor={backDropColor}
+    >
       <View style={[root]}>
         <View style={[wrapOption]}>
           {title &&

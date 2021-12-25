@@ -1,6 +1,6 @@
-import { ColorDefault } from '@themes/color';
-import { StyleSheet } from 'react-native';
-const DIMENSIONS = { width: 16, height: 16 };
+import {ColorDefault} from '@themes/color';
+import {StyleSheet} from 'react-native';
+const DIMENSIONS = {width: 16, height: 16};
 export const styles = StyleSheet.create({
   ROOT: {
     flexDirection: 'row',

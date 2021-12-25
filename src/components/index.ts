@@ -23,3 +23,4 @@ export * from './Divider';
 export * from './ActionSheet';
 export * from './Collapsible';
 export * from './SnackBar';
+export * from './Slider';

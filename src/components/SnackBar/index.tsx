@@ -66,7 +66,8 @@ const SnackBarComponent = forwardRef((props: SnackBarProps, ref) => {
         StyleSheet.absoluteFillObject,
         styles.container,
         {marginTop: inset.top},
-      ]}>
+      ]}
+    >
       {data.map(_renderItem)}
     </View>
   );

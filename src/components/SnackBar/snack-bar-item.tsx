@@ -127,7 +127,8 @@ export const SnackItem = memo(
               borderLeftColorWarn,
             }),
           },
-        ]}>
+        ]}
+      >
         <Text style={[styles.text]}>{item.msg}</Text>
         <Animated.View>
           <TouchableOpacity onPress={_onClose}>

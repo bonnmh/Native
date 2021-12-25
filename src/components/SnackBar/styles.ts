@@ -1,12 +1,12 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
-import { BG_SUCCESS } from './constants';
+import {BG_SUCCESS} from './constants';
 
 export const styles = StyleSheet.create({
   container: {
     minHeight: 50,
     paddingHorizontal: 15,
-    zIndex: 1000
+    zIndex: 1000,
   },
   itemBar: {
     paddingHorizontal: 15,

@@ -1,5 +1,5 @@
-import { scale } from '@common/index';
-import { StyleSheet } from 'react-native';
+import {scale} from '@common/index';
+import {StyleSheet} from 'react-native';
 
 export const MAX_HEIGHT = 250;
 

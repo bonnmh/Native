@@ -51,7 +51,8 @@ const CollapsibleComponent = ({
       <Animated.View
         pointerEvents={'none'}
         onLayout={_onLayoutContent}
-        style={[styles.base, styles.hiddenView]}>
+        style={[styles.base, styles.hiddenView]}
+      >
         {renderContent ? renderContent(progress) : children}
       </Animated.View>
       <TouchableOpacity onPress={_onPress}>

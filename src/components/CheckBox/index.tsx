@@ -67,7 +67,8 @@ const CheckBoxComponent = ({
       activeOpacity={1}
       disabled={disable}
       onPress={onPress}
-      style={[rootStyle]}>
+      style={[rootStyle]}
+    >
       <>
         <View style={[outlineStyle]}>
           <Animated.View style={[_fillStyle, styleAnimated]} />
