@@ -38,7 +38,8 @@ const ProfileStack = createSharedElementStackNavigator<ProfileStackParamList>();
 export const ChatNavigation = () => (
   <ChatStack.Navigator
     initialRouteName={APP_SCREEN.CHAT}
-    screenOptions={{headerShown: false}}>
+    screenOptions={{headerShown: false}}
+  >
     <ChatStack.Screen
       name={APP_SCREEN.CHAT}
       component={Chat}
@@ -61,7 +62,8 @@ export const DiscoverNavigation = () => (
       cardOverlayEnabled: true,
       cardStyle: {backgroundColor: 'transparent'},
       presentation: 'transparentModal',
-    }}>
+    }}
+  >
     <DiscoverStack.Screen name={APP_SCREEN.DISCOVER} component={Discover} />
     <DiscoverStack.Screen
       name={APP_SCREEN.PHOTO}
@@ -83,7 +85,8 @@ export const ProfileNavigation = () => (
       cardOverlayEnabled: true,
       cardStyle: {backgroundColor: 'transparent'},
       presentation: 'transparentModal',
-    }}>
+    }}
+  >
     <ProfileStack.Screen name={APP_SCREEN.PROFILE} component={Profile} />
     <ProfileStack.Screen
       name={APP_SCREEN.PHOTO}
@@ -105,7 +108,8 @@ export const SearchNavigation = () => (
       cardOverlayEnabled: true,
       cardStyle: {backgroundColor: 'transparent'},
       presentation: 'transparentModal',
-    }}>
+    }}
+  >
     <SearchStack.Screen name={APP_SCREEN.SEARCH} component={Search} />
     <SearchStack.Screen
       name={APP_SCREEN.PHOTO}
@@ -132,7 +136,8 @@ export const SharedNavigation = ({
         cardOverlayEnabled: true,
         cardStyle: {backgroundColor: 'transparent'},
         presentation: 'modal',
-      }}>
+      }}
+    >
       <SharedStack.Screen
         name={APP_SCREEN.PHOTO}
         component={Photo}
@@ -152,7 +157,8 @@ export const BottomNavigation = () => {
     <BottomStack.Navigator
       screenOptions={{headerShown: false}}
       initialRouteName={APP_SCREEN.DISCOVER}
-      tabBar={(props: BottomTabBarProps) => <CustomBottomTab {...props} />}>
+      tabBar={(props: BottomTabBarProps) => <CustomBottomTab {...props} />}
+    >
       <BottomStack.Screen
         name={APP_SCREEN.DISCOVER_TAB}
         component={DiscoverNavigation}

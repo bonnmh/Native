@@ -48,7 +48,8 @@ const FurnitureCard: FC<{item: Furniture; index?: number; num?: number}> = ({
           height: (PHOTO_WIDTH * item.height) / item.width,
           width: PHOTO_WIDTH,
           marginLeft: !!num ? 8 : 0,
-        }}>
+        }}
+      >
         <LazyLoadingImage source={item.imgURL} style={{flex: 1}} />
         <Spacer height={spacing.normal} />
       </Button>
@@ -68,7 +69,8 @@ const ListHeader: FC<{}> = ({}) => {
         <Button
           onPress={(): void => {
             navigate(APP_SCREEN.PHOTO, {item: data[0]});
-          }}>
+          }}
+        >
           <LazyLoadingImage
             source={data[0].imgURL}
             style={{width: PHOTO_TODAY_WIDTH, aspectRatio: 1}}
@@ -79,7 +81,8 @@ const ListHeader: FC<{}> = ({}) => {
         marginTop={spacing.small}
         marginBottom={spacing.medium}
         direction="row"
-        alignItems="center">
+        alignItems="center"
+      >
         <LazyLoadingImage
           source={
             'https://images.unsplash.com/photo-1639895072747-679cdb1ef1b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2068&q=80'

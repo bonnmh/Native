@@ -1,5 +1,5 @@
-import { createContext, useCallback, useContext, useState } from 'react';
-import { io, Socket } from 'socket.io-client';
+import {createContext, useCallback, useContext, useState} from 'react';
+import {io, Socket} from 'socket.io-client';
 
 export const useSocket = () => {
   // state
@@ -47,7 +47,7 @@ export const useSocket = () => {
   );
 
   // result
-  return { socket, socketInit, socketOff, socketListen, socketDisconnect };
+  return {socket, socketInit, socketOff, socketListen, socketDisconnect};
 };
 
 type SocketContext = {

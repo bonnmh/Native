@@ -64,6 +64,7 @@
     "@types/react": "^17.0.37",
     "@types/react-native": "^0.66.8",
     "@types/react-test-renderer": "^17.0.1",
+    "@types/socket.io-client": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "babel-jest": "^27.4.4",
@@ -88,6 +89,16 @@
       "json",
       "node"
     ],
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
+    ],
+    "cacheDirectory": ".jest/cache",
     "setupFiles": [
       "./node_modules/react-native-gesture-handler/jestSetup.js"
     ]

@@ -1,5 +1,3 @@
+import {IndicatorWaveProps} from './components/wave/type';
 
-import { IndicatorWaveProps } from './components/wave/type';
-
-export type IndicatorProps =
-    | ({ type?: 'wave' } & IndicatorWaveProps);
+export type IndicatorProps = {type?: 'wave'} & IndicatorWaveProps;
